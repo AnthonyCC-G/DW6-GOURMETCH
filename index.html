@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GourmeTech</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+    <header><!-- comprend un LOGO + h1 et une nav-->
+        <img src="/assets/images/logoGourmetech.png" alt="Logo du site - G">
+        <h1>GourmeTech</h1>
+        <nav>
+            <ul>
+                <li><a href="#Accueil">Accueil</a></li>
+                <li><a href="recette.html">Ajouter une recette</a></li>
+                <li><a href="favoris.html">Mes favoris</a></li>
+                <li><a href="a-propos.html">A propos</a></li>
+            </ul>
+            <button><!--Pour le darkmode-->
+                <img src="assets/icons/mode-nuit.jpg" alt="Bouton pour l'accessibilité (mode sombre ou lumineux)">
+            </button>
+        </nav>
+    </header>
+
+    <section class="nav secondaire"><!--Barre de recherche-->
+        <form action="rechercheRecette"> <!--Formulaire pour rechercher une recette-->
+           <input type="search" name="rechercheR" placeholder="Rechercher une recette" aria-label="champ de recherche pour une recette" required>
+           <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
+           <!--Les filtres--> 
+           <div class="filtre-categorie"><!--Filtre categorie-->
+                <legend>Catégorie</legend>
+                <ul class="filtre-listeC">
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Entrée
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Plat
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Dessert
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filtre-tempsP"><!--Filtre Temps de préparation-->
+                <legend>Temps de préparation</legend>
+                <ul class="filtre-listeC">
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Rapide (- 30 min)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Moyen (30 > 60 min)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Long (> 60 min)
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filtre-difficulte"><!--Filtre difficulté des plats-->
+                <legend>Difficulté</legend>
+                <ul class="filtre-listeC">
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Facile
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Moyen
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="categorie" value="entree">
+                            Difficle
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </section>
+
+   
+</body>
+</html>
