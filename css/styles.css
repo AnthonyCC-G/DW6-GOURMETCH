@@ -1,16 +1,24 @@
 /* ANTHONY & DIOGO = EQUIPE AU TOP ! */
 
 :root {
-    --color-orange : #fa7921;
-    --color-orange-rgb: 250,121,33;
-    --font-primary: Arial, Helvetica, sans-serif;
+    --color-orange: #fa7921;
+    --color-orange-rgb: 250,121,33; /* à utiliser pour jouer avec l'opacity*/
+    --color-background: white; /* couleur de fond selon la maquette */
+
+    --font-primary: Arial, Helvetica, sans-serif; /*écriture par défaut selon consigne */
+    --text-color: black;
+    --taille-h1: 40px;
+
+    --radius-border: 12px;
 
 }
 
+/*------------------------------------------------------*/
 /* POUR NOUS AIDER A NOUS REPERER DANS UN PREMIER TEMPS */
+/*------------------------------------------------------*/
 * {
-    border-style: solid;
-    border-color: var(--color-orange);
+    box-sizing: border-box;
+    margin: 0;
 }
 
 
@@ -20,9 +28,14 @@ body {
     grid-template-rows: repeat(5,1fr);
     gap: 10px;
 
-
 }
 
+header, section, main, footer {
+    border: 2px solid red;
+}
+
+/*---------ESPACE OUTIL DEVELOPPEMENT-------------*/
+/*------------------------------------------------*/
 
 /* -----------------------------------------------*/
 /* --------- PARTIE ANTHONY ----------------------*/
@@ -31,9 +44,24 @@ body {
 
 header {
     grid-column: span 3/ span 3;
-    
+    display:flex;  
 }
 
+header img {
+    width: 40px;
+    height: 40px;
+}
+
+header button {
+    width: 44px;
+    height: 44px;
+}
+
+nav{
+    display: flex;
+
+
+}
 
 
 section {
