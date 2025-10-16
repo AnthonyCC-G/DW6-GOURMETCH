@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmeThech - À propos </title>
+</head>
+<body class="parent">
+    <header><!--même header que la page d'accueil pour la cohérence (juste FAVORIS qui ressortira)-->
+        <img src="/assets/images/logoGourmetech.png" alt="Logo du site - G">
+        <h1>GourmeTech</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="recette.html">Ajouter une recette</a></li>
+                <li><a href="favoris.html">Mes favoris</a></li>
+                <li><a href="a-propos.html">A propos</a></li>
+            </ul>
+            <button><!--Pour le darkmode-->
+                <img src="assets/icons/mode-nuit.jpg" alt="Bouton pour l'accessibilité (mode sombre ou lumineux)">
+            </button>
+        </nav>
+    </header>
+    
+    <!---->
+    <main class="fav-parent">
+        <div>
+            <h2>À propos</h2>
+            <article>
+                <h3>
+                    CEO - 1
+                </h3>
+                <img src="#" alt="Image du CEO 1">
+                <p>Salut, moi c'est Monsieur ...</p>
+            </article>
+            <form class="form-contacte" id="form-contact">
+                 <label for="nom">Nom Prénom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="sujet">Sujet :</label>
+                <input type="text" id="sujet" name="sujet" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <p>2025 GourmeThech - Tous les droits réservés</p>
+    </footer>
+</body>
+</html>
