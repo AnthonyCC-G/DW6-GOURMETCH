@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GourmeThech</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="parent">
   
-    <header><!-- comprend un LOGO + h1 et une nav-->
-        <img src="/assets/images/logoGourmetech.png" alt="Logo du site - G">
-        <h1>GourmeTech</h1>
+    <header><!-- comprend un LOGO + h1 et une nav + bouton darkmode-->
+        <a href="index.html" class="logo">
+            <img src="/assets/images/logoGourmetech.png" alt="Logo du site - G">
+            <h1>GourmeTech</h1>
+        </a>
         <nav>
             <ul>
-                <li><a href="#Accueil">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="recette.html">Ajouter une recette</a></li>
                 <li><a href="favoris.html">Mes favoris</a></li>
                 <li><a href="a-propos.html">A propos</a></li>
@@ -23,14 +26,14 @@
         </nav>
     </header>
 
-    <section class="nav secondaire"><!--Barre de recherche-->
-        <form action="rechercheRecette"> <!--Formulaire pour rechercher une recette-->
+    <section class="search-filter-"><!--Barre de recherche-->
+        <form action="rechercheRecette" method="get"> <!--Formulaire pour rechercher une recette-->
            <input type="search" name="rechercheR" placeholder="Rechercher une recette" aria-label="champ de recherche pour une recette" required>
            <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
            <!--Les filtres--> 
-           <div class="filtre-categorie"><!--Filtre categorie-->
+           <div class="categorie-filter"><!--Filtre categorie-->
                 <legend>Catégorie</legend>
-                <ul class="filtre-listeC">
+                <ul class="listeC-filter">
                     <li>
                         <label>
                             <input type="radio" name="categorie" value="entree">
@@ -39,60 +42,60 @@
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="plat">
                             Plat
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="dessert">
                             Dessert
                         </label>
                     </li>
                 </ul>
             </div>
-            <div class="filtre-tempsP"><!--Filtre Temps de préparation-->
+            <div class="tempsP-filter"><!--Filtre Temps de préparation-->
                 <legend>Temps de préparation</legend>
-                <ul class="filtre-listeC">
+                <ul class="filter-tempsP">
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="rapide">
                             Rapide (- 30 min)
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="moyen">
                             Moyen (30 > 60 min)
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="long">
                             Long (> 60 min)
                         </label>
                     </li>
                 </ul>
             </div>
-            <div class="filtre-difficulte"><!--Filtre difficulté des plats-->
+            <div class="filtre-difficulty"><!--Filtre difficulté des plats-->
                 <legend>Difficulté</legend>
-                <ul class="filtre-listeC">
+                <ul class="filter-difficulty">
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="facile">
                             Facile
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
+                            <input type="radio" name="categorie" value="normale">
                             Moyen
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="categorie" value="entree">
-                            Difficle
+                            <input type="radio" name="categorie" value="dure">
+                            Difficile
                         </label>
                     </li>
                 </ul>
@@ -100,7 +103,7 @@
         </form>
     </section>
   
-    <main class="cards"> <!---->
+    <main class="cards"> 
         <article class="card-content-1">
             <a href="#"><img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image-1"></a>  
             <h2 class="card-title">Pasteis de Chaves</h2>
