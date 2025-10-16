@@ -32,73 +32,79 @@
            <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
            <!--Les filtres--> 
            <div class="categorie-filter"><!--Filtre categorie-->
+            <fieldset>   
                 <legend>Catégorie</legend>
-                <ul class="listeC-filter">
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="entree">
-                            Entrée
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="plat">
-                            Plat
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="dessert">
-                            Dessert
-                        </label>
-                    </li>
-                </ul>
+                    <ul class="listeC-filter">
+                        <li>
+                            <label>
+                                <input type="radio" name="categorie" value="entree">
+                                Entrée
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="categorie" value="plat">
+                                Plat
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="categorie" value="dessert">
+                                Dessert
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset> 
             </div>
             <div class="tempsP-filter"><!--Filtre Temps de préparation-->
-                <legend>Temps de préparation</legend>
-                <ul class="filter-tempsP">
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="rapide">
-                            Rapide (- 30 min)
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="moyen">
-                            Moyen (30 > 60 min)
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="long">
-                            Long (> 60 min)
-                        </label>
-                    </li>
-                </ul>
+                <fieldset>
+                    <legend>Temps de préparation</legend>
+                        <ul class="filter-tempsP">
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="rapide">
+                                    Rapide (- 30 min)
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="moyen">
+                                    Moyen (30 > 60 min)
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="long">
+                                    Long (> 60 min)
+                                </label>
+                            </li>
+                        </ul>
+                </fieldset>
             </div>
             <div class="filtre-difficulty"><!--Filtre difficulté des plats-->
-                <legend>Difficulté</legend>
-                <ul class="filter-difficulty">
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="facile">
-                            Facile
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="normale">
-                            Moyen
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="categorie" value="dure">
-                            Difficile
-                        </label>
-                    </li>
-                </ul>
+                <fieldset>
+                    <legend>Difficulté</legend>
+                        <ul class="filter-difficulty">
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="facile">
+                                    Facile
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="normale">
+                                    Moyen
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="categorie" value="dure">
+                                    Difficile
+                                </label>
+                            </li>
+                        </ul>
+                </fieldset>
             </div>
         </form>
     </section>
