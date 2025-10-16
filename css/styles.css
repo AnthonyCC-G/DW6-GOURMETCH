@@ -1,9 +1,45 @@
+/* ANTHONY & DIOGO = EQUIPE AU TOP ! */
+
+:root {
+    --color-orange : #fa7921;
+    --color-orange-rgb: 250,121,33;
+    --font-primary: Arial, Helvetica, sans-serif;
+
+}
+
+/* POUR NOUS AIDER A NOUS REPERER DANS UN PREMIER TEMPS */
+* {
+    border-style: solid;
+    border-color: var(--color-orange);
+}
+
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5,1fr);
+    gap: 10px;
+
+
+}
+
 
 /* -----------------------------------------------*/
 /* --------- PARTIE ANTHONY ----------------------*/
 /* -----------------------------------------------*/
+/* HEADER & SECTION */
+
+header {
+    grid-column: span 3/ span 3;
+    
+}
 
 
+
+section {
+    grid-column: span 3 / span 3;
+    grid-row-start: 2;
+}
 
 
 
