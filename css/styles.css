@@ -5,11 +5,16 @@
     --color-orange-rgb: 250,121,33; /* à utiliser pour jouer avec l'opacity*/
     --color-background: white; /* couleur de fond selon la maquette */
 
-    --font-primary: Arial, Helvetica, sans-serif; /*écriture par défaut selon consigne */
+    --font-primary: 'Segoe UI', Helvetica, sans-serif; /*écriture par défaut selon consigne */
     --text-color: black; /* couleur écriture */
     --taille-h1: 40px; /* Taille de police h1 ?*/
-
     --radius-border: 12px; /* il y a des bordures partout sur la maquette */
+
+
+    /* STYLE POUR DARKMODE */
+    --color-backdarkmode : black;
+    --font-darkmode : white;
+
 
 }
 
@@ -19,6 +24,8 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
 }
 
 
@@ -26,12 +33,20 @@ body {
     display: grid;
     grid-template-columns: 1fr; 
     grid-template-rows: auto auto 1fr auto; 
-    gap: 10px;
+    gap: 15px;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    background-color:var(--color-background);
 
 }
 
 header, section, main, footer {
-    border: 2px solid red;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+
 }
 
 /*---------FIN ESPACE OUTIL DEVELOPPEMENT-------------*/
@@ -43,30 +58,90 @@ header, section, main, footer {
 /* HEADER & SECTION */
 
 header {
-    grid-row: 1;
-    display:flex;  
+    grid-row: 1; /* position du header sur le body (ligne 1) */
+    display:flex;
+    width: 100%;
+    max-width: 100VW;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
 }
 
-header img {
-    width: 40px;
-    height: 40px;
-}
-
-header button {
-    width: 44px;
-    height: 44px;
-}
-
-nav{
+.logo {
     display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--color-orange);
+    font-weight: 600;
+}
 
+.logo img {
+    width: 50px;
+    height: 50px;
 
 }
+
+.logo h1{
+    font-size: var(--taille-h1);
+    margin: 0;
+}
+
+
+nav ul {
+    display: flex;  
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative
+}
+
+nav a.pActive{
+    color: var(--color-orange);
+}
+
+nav a.pActive::after {
+    content:'';
+    position:absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-orange) ;
+}
+
+nav a:hover {
+    color: var(--color-orange);
+}
+
+
+/* Le bouton darkmode est un SVG en inline dans le HTML */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: gold;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
 
 section {
     grid-row: 2;
     
 }
+
 
 
 
