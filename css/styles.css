@@ -24,8 +24,8 @@
 
 body {
     display: grid;
-    grid-template-columns: 1fr; /* A REVOIR ENSEMBLE : opter plutot pour : 1fr en colonne */
-    grid-template-rows: auto auto 1fr auto; /* A REVOIR ENSEMBLE : opter plutot pour : auto auto 1fr auto */
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto 1fr auto; 
     gap: 10px;
 
 }
@@ -43,7 +43,7 @@ header, section, main, footer {
 /* HEADER & SECTION */
 
 header {
-    grid-column: span 3/ span 3;
+    grid-row: 1;
     display:flex;  
 }
 
@@ -64,8 +64,8 @@ nav{
 }
 
 section {
-    grid-column: span 3 / span 3;
-    grid-row-start: 2;
+    grid-row: 2;
+    
 }
 
 
