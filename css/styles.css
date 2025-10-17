@@ -24,8 +24,8 @@
 
 body {
     display: grid;
-    grid-template-columns: repeat(3,1fr); /* A REVOIR ENSEMBLE : opter plutot pour : 1fr en colonne */
-    grid-template-rows: repeat(5,1fr); /* A REVOIR ENSEMBLE : opter plutot pour : auto auto 1fr auto */
+    grid-template-columns: 1fr; /* A REVOIR ENSEMBLE : opter plutot pour : 1fr en colonne */
+    grid-template-rows: auto auto 1fr auto; /* A REVOIR ENSEMBLE : opter plutot pour : auto auto 1fr auto */
     gap: 10px;
 
 }
@@ -34,7 +34,7 @@ header, section, main, footer {
     border: 2px solid red;
 }
 
-/*---------ESPACE OUTIL DEVELOPPEMENT-------------*/
+/*---------FIN ESPACE OUTIL DEVELOPPEMENT-------------*/
 /*------------------------------------------------*/
 
 /* -----------------------------------------------*/
