@@ -57,6 +57,8 @@ header, section, main, footer {
 /* -----------------------------------------------*/
 /* HEADER & SECTION */
 
+
+/* HEADER */
 header {
     grid-row: 1; /* position du header sur le body (ligne 1) */
     display:flex;
@@ -136,15 +138,97 @@ nav a:hover {
     transition: transform 0.3s;
 }
 
-
+/* SECTION */
 section {
-    grid-row: 2;
-    
+    grid-row: 2; /* position de la section sur la page */
+    display: flex; /*plus avantageux que du grid pour le responsiv dans ce cas précis */
+    flex-direction: column; /* indique de tout empiler verticalent */
+    gap: 20px; /* espacement */
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.search-bar {
+    display:flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.filters-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+section input[type="search"] {
+    flex: 1 1 600px; /*la barre de recherche grandi, rétrécit, mais garde une base mini de 300px*/
+    padding: 12px 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+section input[type="submit"] {
+    padding: 12px 24px;
+    background-color: var(--color-orange);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.categorie-filter,
+.tempsP-filter,
+.filter-difficulty {
+    flex: 1 1 250px; /* Permet d'interdire de grandir ou de rétrécir */
+    max-width: 350px;
+}
+
+fieldset {
+    border: 0;
+    border-radius: var(--radius-border);
+    padding: 20px;
+    padding-top: 0;
+    background-color: #fafafa;
+    width: 100%;
 }
 
 
+legend{
+    font-weight: 700;
+    color: var(--text-color);
+    padding: 35px 10px 0px 10px;
+    font-size: 15px;
+    transform: translateY(0);
+    margin-bottom: 10px;
+}
+
+.listeC-filter,
+.filter-tempsP, 
+.filtre-difficulte {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 0;
+}
 
 
+.listeC-filter label, 
+.filter-tempsP label, 
+.filter-difficulty label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
 
 /* -----------------------------------------------*/
 /* --------- PARTIE DIOGO ----------------------*/
