@@ -29,92 +29,96 @@
             </button>
     </header>
 
-    <section class="search-filter-"><!--Barre de recherche-->
+    <section class="search-filter"><!--Barre de recherche-->
         <form action="rechercheRecette" method="get"> <!--Formulaire pour rechercher une recette-->
-           <input type="search" name="rechercheR" placeholder="Rechercher une recette" aria-label="champ de recherche pour une recette" required>
-           <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
+           <div class="search-bar">
+                <input type="search" name="rechercheR" placeholder="Rechercher une recette" aria-label="champ de recherche pour une recette" required>
+                <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
+           </div>
            <!--Les filtres--> 
-           <div class="categorie-filter"><!--Filtre categorie-->
+           <div class="filters-container">
+                <div class="categorie-filter"><!--Filtre categorie-->
             <fieldset>   
                 <legend>Catégorie</legend>
                     <ul class="listeC-filter">
                         <li>
                             <label>
-                                <input type="radio" name="categorie" value="entree">
+                                <input type="checkbox" name="categorie[]" value="entree">
                                 Entrée
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="radio" name="categorie" value="plat">
+                                <input type="checkbox" name="categorie[]" value="plat">
                                 Plat
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="radio" name="categorie" value="dessert">
+                                <input type="checkbox" name="categorie[]" value="dessert">
                                 Dessert
                             </label>
                         </li>
                     </ul>
                 </fieldset> 
-            </div>
-            <div class="tempsP-filter"><!--Filtre Temps de préparation-->
+                </div>
+                <div class="tempsP-filter"><!--Filtre Temps de préparation-->
                 <fieldset>
                     <legend>Temps de préparation</legend>
                         <ul class="filter-tempsP">
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="rapide">
+                                    <input type="checkbox" name="temps[]" value="rapide">
                                     Rapide (- 30 min)
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="moyen">
+                                    <input type="checkbox" name="temps[]" value="moyen">
                                     Moyen (30 > 60 min)
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="long">
+                                    <input type="checkbox" name="temps[]" value="long">
                                     Long (> 60 min)
                                 </label>
                             </li>
                         </ul>
                 </fieldset>
-            </div>
-            <div class="filtre-difficulty"><!--Filtre difficulté des plats-->
+                </div>
+                <div class="filter-difficulty"><!--Filtre difficulté des plats-->
                 <fieldset>
                     <legend>Difficulté</legend>
-                        <ul class="filter-difficulty">
+                        <ul class="filtre-difficulte">
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="facile">
+                                    <input type="checkbox" name="difficulte[]" value="facile">
                                     Facile
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="normale">
+                                    <input type="checkbox" name="difficulte[]" value="normale">
                                     Moyen
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="categorie" value="dure">
+                                    <input type="checkbox" name="difficulte[]" value="dure">
                                     Difficile
                                 </label>
                             </li>
                         </ul>
                 </fieldset>
+                </div>
             </div>
         </form>
     </section>
   
     <main class="cards"> 
         <article class="card-content-1">
-            <a href="#"><img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image-1"></a>  
+            <a href="#"><img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image-1" width="300px"></a> <!--Pour le css et les bordures "c'est momentanée"-->
             <h2 class="card-title">Pasteis de Chaves</h2>
             <p class="card-text">Ceci est le corps du texte de la carte. Vous pouvez y mettre une description, des informations, etc.</p>
         </article>
