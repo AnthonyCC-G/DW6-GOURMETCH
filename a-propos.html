@@ -32,7 +32,11 @@
     <main class="a-propos-main">
         <div class="a-propos-div">
             <h2>À propos</h2>
-            <article>
+            <div class="tabs-navigation">
+                <button class="tab-button-active" data-tab="ceo">Présentation</button>
+                <button class="tab-button" data-tab="faq">F.A.Q.</button>
+            </div>
+            <article class="tab-content active" id="ceo-content">
                 <img src="assets/images/CEO.png" alt="Image du CEO Monsieur Jeff TOCHE">
                 <div class="CEO">
                     <h3>
@@ -48,22 +52,71 @@
                         Et ça, <strong>c'est du sérieux.</strong></p>
                 </div>
             </article>
+            <article class="tab-content" id="faq-content">
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Comment ajouter une recette ?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Pour ajouter une recette, cliquez sur "Ajouter une recette" dans le menu principal. 
+                            Remplissez le formulaire avec les ingrédients, les étapes de préparation et ajoutez une photo si vous le souhaitez.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Comment gérer mes recettes favorites ?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Vous pouvez ajouter une recette à vos favoris en cliquant sur l'icône cœur sur chaque carte de recette. 
+                            Retrouvez toutes vos recettes favorites dans la section "Mes favoris".</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Les recettes sont-elles adaptées aux débutants ?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui ! Nous proposons des recettes de tous niveaux. Utilisez le filtre "Difficulté" pour 
+                            trouver des recettes faciles adaptées aux débutants.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Puis-je filtrer les recettes par temps de préparation ?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolument ! Sur la page d'accueil, utilisez le filtre "Temps de préparation" pour
+                             trouver des recettes rapides (moins de 30 min), moyennes (30-60 min) ou longues (plus de 60 min).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            GourmeTech est-il gratuit ?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui, GourmeTech est entièrement gratuit ! Il s'agit d'un projet pédagogique développé pour rendre la cuisine accessible à tous.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
         <aside>
             <h2>Formulaire de contact</h2>
             <form class="form-contacte" id="form-contact">
                  <label for="nom">Nom Prénom :</label>
                 <input type="text" id="nom" name="nom" required>
-
                 <label for="email">Email :</label>
                 <input type="email" id="email" name="email" required>
-
                 <label for="sujet">Sujet :</label>
                 <input type="text" id="sujet" name="sujet" required>
-
                 <label for="message">Message :</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
-
                 <button type="submit">Envoyer</button>
             </form>
         </aside>
