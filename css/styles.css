@@ -370,12 +370,17 @@ aside form button:active{
 }
 
 
-
 /* PAGE A PROPOS - FOOTER */
 .a-propos-footer {
     grid-row: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
+.a-propos-footer p {
+}
 
 
 /* -----------------------------------------------*/
