@@ -316,6 +316,7 @@ legend{
     transition: all 0.3s ease;
 }
 
+/*AU SURVOL */
 .tab-btn:hover {
     color: var(--color-orange);
 }
@@ -334,6 +335,7 @@ legend{
     display: flex;
 }
 
+/*pour le déploiement des réponses */
 @keyframes fadeIn {
     from {
         opacity: 0;
