@@ -165,7 +165,7 @@ section form {
 }
 
 section input[type="search"] {
-    flex: 1 1 600px; /*la barre de recherche grandi, rétrécit, mais garde une base mini de 300px*/
+    flex: 1 1 600px; /*la barre de recherche grandi, rétrécit, mais garde une base mini de 600px*/
     padding: 12px 16px;
     border: 1px solid black;
     border-radius: 5px;
@@ -219,7 +219,6 @@ legend{
     padding: 0;
 }
 
-
 .listeC-filter label, 
 .filter-tempsP label, 
 .filter-difficulty label {
@@ -229,6 +228,155 @@ legend{
     cursor: pointer;
     font-size: 14px;
 }
+
+/* PAGE A PROPOS - MAIN */
+.a-propos-main {
+    grid-row: 3;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+.a-propos-main div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 50%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.a-propos-div h2 {
+    margin-bottom: 20px;
+    color: var(--color-orange);
+    font-size: 28px;
+}
+
+.a-propos-main article {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.a-propos-main article img {
+    width: 35%; /* prend 35% de l'ARTICLE*/
+    min-width: 180px;/* largeur minimale */
+    max-width: 250px; /*largeur maximale */
+    height: auto; /* hauteur automatique pour garder les proportions */
+    aspect-ratio: 2/3; /*pour les images en mode "portrait" */
+    object-fit: cover;/* recadre l'image si nécessaire */
+    border-radius: var(--radius-border);
+    flex-shrink: 0;
+}
+
+.CEO{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1; /* Prend tout l'espace restant dans l'ARTICLE  */
+}
+
+.CEO h3{
+    color: var(--color-orange);
+    font-size: 20px;
+    margin: 0;
+}
+
+.CEO p {
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+
+.a-propos-main aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 50%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+aside h2 {
+    margin-bottom: 20px;
+    color: var(--color-orange);
+}
+
+aside form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;  
+}
+
+aside form label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+aside form input, 
+aside form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-border);
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+aside form input:focus, 
+aside form textarea:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px rgba(var(--color-orange),0.1);
+}
+
+aside form textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: var(--font-primary);
+}
+
+aside form button {
+    padding: 14px 24px;
+    background-color: rgba(var(--color-orange));
+    color: white;
+    border: none;
+    border-radius: var(--radius-border);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+aside form button:hover{
+    background-color: #e56a1a;
+    transform: translateY(-2px);
+}
+
+aside form button:active{
+    transform: translateY(0);
+}
+
+
+
+/* PAGE A PROPOS - FOOTER */
+.a-propos-footer {
+    grid-row: 4;
+}
+
+
 
 /* -----------------------------------------------*/
 /* --------- PARTIE DIOGO ----------------------*/
