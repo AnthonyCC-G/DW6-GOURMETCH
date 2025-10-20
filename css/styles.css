@@ -561,7 +561,8 @@ aside form button:active{
     width: 30%;
     padding: 0rem;
     border-radius: 12px;
-    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .card-image{
@@ -596,6 +597,11 @@ aside form button:active{
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    left: auto;
+    transform: none; 
     z-index: 3;
 }
 .like img{
@@ -607,452 +613,43 @@ aside form button:active{
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
 .temps span{
     background-color: var(--color-background-temps);
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
 .dificulte span{
     background-color: var(--color-background-dificulte);
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
-.navigation{
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
 }
-ul{
-    list-style-type: none;
     
-}
-a{
-    text-decoration: none;
-    font-style: var(--font-primary);
-    color: var(--text-color);
-}
-.trait{
-    margin-top: 5%;
+.div1 {
+    grid-row: span 2 / span 2;
 }
 
-.droits{
-    text-align: center;
-    margin-top: 0%;
+.div2 {
+    grid-row: span 2 / span 2;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Anthony et Diogo RESPONSIV */
-/* RESPONSIV TABLETTE */
-
-@media screen and (max-width: 1024px) {
-    header{
-        padding: 15px 20px;
-    }
-    
-    .logo h1 {
-        font-size: 28px; /*il faut réduire la taille du titre */
-    }
-    
-    .logo img {
-        width: 40px; /* Réduit la taille du logo */
-    }
-    
-    #theme-toggle {
-        padding: 6px;
-    }
-
-    #theme-toggle svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    #burger-menu{
-        display: flex;
-    }
-
-    nav {
-        position: fixed;
-        top:0;
-        right: -100%; /* indique de cacher le menu hors de l'écran */
-        width: 70%;
-        max-width: 350px;
-        height: 100vh;
-        background-color: white;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        padding: 80px 30px 30px;
-        transition: right 0.4s ease;
-        z-index: 999;
-        overflow-y: auto;
-    };
-
-
-    /* Quand le menu est ouvert */
-    nav.active {
-        right: 0;
-    }
-
-
-    /* les liens en colonne*/
-    nav ul {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul li{
-        width: 100%;
-    }
-
-    nav a{
-        display:block;
-        padding: 15px 20px;
-        border-radius: 8px;
-        transition: backrgound-color 0.3s;
-    }
-
-    nav a:hover{
-        background-color: rgba(250,121,33,0.1);
-    }
-
-
-    body::before{
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.4s ease, visibility 0.4s ease;
-        z-index: 998;
-    }
-
-    body.menu-open::before {
-        opacity:1;
-        visibility: visible;
-    }
-
-    /* il faut empêcher le scroll quand le menu est ouvert */
-    body.menu-open{
-        overflow: hidden;
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    .search-bar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-
-    /* Prend toute la largeur */
-    section input[type="search"] {
-        flex: 1 1 100%; 
-        min-width: 100%;
-    }
-
-    /* bouton en dessous sur tablette */
-    section input[type="submit"] {
-        flex: 1 1 100%; 
-    }
-
-
-    .categorie-filter,
-    .tempsP-filter,
-    .filter-difficulty{ /* 2 filtres par ligne sur la tablette */
-        flex: 1 1 calc(50% - 10px); /* conseil de Bertrand. */
-        max-width: none;
-    }
-
-    .a-propos-main {
-        flex-direction: column; /* indique d'empiler sur 2 colonnes*/
-    }
-
-    .a-propos-div,
-    .a-propos-main aside {
-        width: 100%; /* indique que chaque bloc prend toute la largeur */
-    }
-
-    .a-propos-main article {
-        flex-direction: row; /* la partie CEO reste en ligne (image et texte du CEO)  */
-    }
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
 }
 
-
-@media screen and (max-width:768px) {
-    body {
-        padding: 10px;
-    }
-
-    header {
-        padding: 12px 15px;
-        gap: 10px;
-    }
-
-    .logo{
-        gap: 8px;
-        flex: 1; /*permet au logo de prendre l'espace dispo */
-    }
-
-    .logo h1 {
-        font-size: 22px; 
-    }
-
-    .logo img{
-        width: 35px;
-        height: 35px;
-    }
-
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    #theme-toggle {
-        order: 2;
-    }
-
-    #burger-menu {
-        order: 3;
-    }
-
-    nav {
-        width: 80%;
-        padding: 70px 20px 20px;
-    }
-
-    nav a {
-        font-size: 16px;
-        padding: 12px 15px;
-    }
-
-    section{
-        padding: 15px 10px;
-    }
-
-    section form {
-        gap: 20px;
-    }
-
-    section input[type="search"] { /* permet d'indiquer à la barre de recherche de prendre toute la largeur  */
-        flex: 1 1 100%;
-        min-width: 100%;
-        font-size: 14px;
-        padding: 10px 14px;
-    }
-
-    .categorie-filter,
-    .tempsP-filter,
-    .filter-difficulty {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    fieldset {
-        padding: 15px;
-    }
-
-    legend {
-        font-size: 14px;
-        padding: 25px 10px 0px 10px;
-    }
-
-    .listeC-filter label,
-    .filter-tempsP label,
-    .filter-difficulty label {
-        font-size: 13px;
-    }
-
-    .a-propos-main {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .a-propos-div,
-    .a-propos-main aside {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .a-propos-main article {
-        flex-direction: column; /* l'image et le texte du CEO doivent être en colonne sur mobile */
-        align-items: center; /* centre l'image */
-    }
-
-    .a-propos-main article img {
-        width: 60%;
-        max-width: 200px;
-        min-width: 150px;
-    };
-
-    .CEO {
-        text-align: center; /* centre le texte ur mobile */
-    }
-
-    .CEO p {
-        text-align: left; /* il faut que le texte reste aligné à gauche pour la lisibilité */
-    }
-
-    .tabs-navigation {
-        flex-direction: column; /* empile les onglets sur mobile si besoin */
-        gap: 5px;
-    }
-
-    .tab-btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    aside form input,
-    aside form textarea {
-        font-size: 14px; /* texte plus petit */
-    }
-
-    aside form button {
-        width: 100%;
-    }
-
-    .faq-question{
-        font-size: 14px;
-        padding: 15px;
-    }
-
-    .faq-answer{
-        font-size: 14px;
-    }
-
-    .faq-item.active, 
-    .faq-answer {
-        padding: 15px;
-    }
-}
-
-
-/* SMARTPHONE (moins de 480px au cas où) */
-@media screen and (max-width:480px) {
-    header {
-        padding: 10px 12px;
-    }
-
-    .logo h1 {
-        font-size: 18px; /* Titre très compact */
-    }
-
-    .logo img {
-        width: 30px;
-        height: 30px;
-    }
-
-    #theme-toggle svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    #burger-menu {
-        width: 25px;
-        height: 20px;
-    }
-    
-    section {
-        padding: 12px 8px;
-    }
-    
-    section input[type="search"],
-    section input[type="submit"] {
-        font-size: 13px;
-        padding: 10px 12px;
-    }
-    
-    fieldset {
-        padding: 12px;
-    }    
-    
-    .a-propos-div h2,
-    aside h2 {
-        font-size: 22px;
-    }
-
-    .CEO h3 {
-        font-size: 18px;
-    }
-
-    .a-propos-main article img {
-        width: 80%;
-    }
-
+.div4 {
+    grid-column: span 2 / span 2;
+    grid-row-start: 4;
 }
