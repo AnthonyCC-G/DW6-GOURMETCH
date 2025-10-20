@@ -629,7 +629,7 @@ aside form button:active{
     font-size: large;
     padding: 0px 6px;
 }
-.parent {
+.footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
