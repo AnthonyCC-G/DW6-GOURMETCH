@@ -629,7 +629,6 @@ aside form button:active{
     padding: 0px 6px;
 }
 
-
 /* FOOTER */
 .footer {
     grid-row: 4;
@@ -668,7 +667,7 @@ footer .navigation ul {
     padding: 0;
 }
 
-.naviagation a {
+.navigation a {
     color: var(--color-orange);
     text-decoration: none;
 }
@@ -699,9 +698,112 @@ footer .navigation ul {
     margin: 20px 0;
 }
 
-.droits{
-    text-align: center;
-    color: var(--text-color);
-    font-size: 14px;
-    margin: 0;
-}
+
+/* Anthony et Diogo RESPONSIV */
+/* RESPONSIV TABLETTE */
+
+@media screen and (max-width: 1024px) {
+    header{
+        padding: 15px 20px;
+    }
+    
+    .logo h1 {
+        font-size: 28px; /*il faut réduire la taille du titre */
+    }
+    
+    .logo img {
+        width: 40px; /* Réduit la taille du logo */
+    }
+    
+    #theme-toggle {
+        padding: 6px;
+    }
+
+    #theme-toggle svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    #burger-menu{
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+        top:0;
+        right: -100%; /* indique de cacher le menu hors de l'écran */
+        width: 70%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        padding: 80px 30px 30px;
+        transition: right 0.4s ease;
+        z-index: 999;
+        overflow-y: auto;
+    };
+
+
+    /* Quand le menu est ouvert */
+    nav.active {
+        right: 0;
+    }
+
+
+    /* les liens en colonne*/
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul li{
+        width: 100%;
+    }
+
+    nav a{
+        display:block;
+        padding: 15px 20px;
+        border-radius: 8px;
+        transition: backrgound-color 0.3s;
+    }
+
+    nav a:hover{
+        background-color: rgba(250,121,33,0.1);
+    }
+
+
+    body::before{
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 998;
+    }
+
+    body.menu-open::before {
+        opacity:1;
+        visibility: visible;
+    }
+
+    /* il faut empêcher le scroll quand le menu est ouvert */
+    body.menu-open{
+        overflow: hidden;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+
