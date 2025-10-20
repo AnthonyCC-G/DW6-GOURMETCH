@@ -546,7 +546,6 @@ aside form button:active{
 }
 
 
-
 /* -----------------------------------------------*/
 /* --------- PARTIE DIOGO ----------------------*/
 /* -----------------------------------------------*/
@@ -561,7 +560,8 @@ aside form button:active{
     width: 30%;
     padding: 0rem;
     border-radius: 12px;
-    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .card-image{
@@ -596,6 +596,11 @@ aside form button:active{
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    left: auto;
+    transform: none; 
     z-index: 3;
 }
 .like img{
@@ -607,114 +612,91 @@ aside form button:active{
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
 .temps span{
     background-color: var(--color-background-temps);
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
 .dificulte span{
     background-color: var(--color-background-dificulte);
     border-radius: 12px;
     text-align: center;
     font-size: large;
-    padding: 2px 6px;
+    padding: 0px 6px;
 }
-.navigation{
-    display: flex; 
-    align-items: center; 
+
+/* FOOTER */
+.footer {
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding: 40px;
+}
+
+.footer-content {
+    display: flex;
     justify-content: space-between;
+    gap: 40px;
+    width: 100%;
 }
-ul{
-    list-style-type: none;
-    
+
+
+/* DIV navigation */
+.navigation {
+    flex: 1;
+    max-width: 400px;
 }
-a{
+
+
+.title-footer {
+    color: var(--color-orange);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+footer .navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.navigation a {
+    color: var(--color-orange);
     text-decoration: none;
-    font-style: var(--font-primary);
+}
+
+/* DIV : propos */
+.propos {
+    flex: 1;
+    max-width: 500px;
+}
+
+
+.propos h2 {
+    color: var(--color-orange);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.propos p {
+    line-height: 1.6;
     color: var(--text-color);
 }
-.trait{
-    margin-top: 5%;
+
+
+.trait {
+    width: 100%;
+    border: none;
+    border-top:  1px solid #e0e0e0;
+    margin: 20px 0;
 }
-
-.droits{
-    text-align: center;
-    margin-top: 0%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Anthony et Diogo RESPONSIV */
@@ -824,240 +806,4 @@ a{
     }
 
 
-    /* Prend toute la largeur */
-    section input[type="search"] {
-        flex: 1 1 100%; 
-        min-width: 100%;
-    }
 
-    /* bouton en dessous sur tablette */
-    section input[type="submit"] {
-        flex: 1 1 100%; 
-    }
-
-
-    .categorie-filter,
-    .tempsP-filter,
-    .filter-difficulty{ /* 2 filtres par ligne sur la tablette */
-        flex: 1 1 calc(50% - 10px); /* conseil de Bertrand. */
-        max-width: none;
-    }
-
-    .a-propos-main {
-        flex-direction: column; /* indique d'empiler sur 2 colonnes*/
-    }
-
-    .a-propos-div,
-    .a-propos-main aside {
-        width: 100%; /* indique que chaque bloc prend toute la largeur */
-    }
-
-    .a-propos-main article {
-        flex-direction: row; /* la partie CEO reste en ligne (image et texte du CEO)  */
-    }
-}
-
-
-@media screen and (max-width:768px) {
-    body {
-        padding: 10px;
-    }
-
-    header {
-        padding: 12px 15px;
-        gap: 10px;
-    }
-
-    .logo{
-        gap: 8px;
-        flex: 1; /*permet au logo de prendre l'espace dispo */
-    }
-
-    .logo h1 {
-        font-size: 22px; 
-    }
-
-    .logo img{
-        width: 35px;
-        height: 35px;
-    }
-
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    #theme-toggle {
-        order: 2;
-    }
-
-    #burger-menu {
-        order: 3;
-    }
-
-    nav {
-        width: 80%;
-        padding: 70px 20px 20px;
-    }
-
-    nav a {
-        font-size: 16px;
-        padding: 12px 15px;
-    }
-
-    section{
-        padding: 15px 10px;
-    }
-
-    section form {
-        gap: 20px;
-    }
-
-    section input[type="search"] { /* permet d'indiquer à la barre de recherche de prendre toute la largeur  */
-        flex: 1 1 100%;
-        min-width: 100%;
-        font-size: 14px;
-        padding: 10px 14px;
-    }
-
-    .categorie-filter,
-    .tempsP-filter,
-    .filter-difficulty {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    fieldset {
-        padding: 15px;
-    }
-
-    legend {
-        font-size: 14px;
-        padding: 25px 10px 0px 10px;
-    }
-
-    .listeC-filter label,
-    .filter-tempsP label,
-    .filter-difficulty label {
-        font-size: 13px;
-    }
-
-    .a-propos-main {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .a-propos-div,
-    .a-propos-main aside {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .a-propos-main article {
-        flex-direction: column; /* l'image et le texte du CEO doivent être en colonne sur mobile */
-        align-items: center; /* centre l'image */
-    }
-
-    .a-propos-main article img {
-        width: 60%;
-        max-width: 200px;
-        min-width: 150px;
-    };
-
-    .CEO {
-        text-align: center; /* centre le texte ur mobile */
-    }
-
-    .CEO p {
-        text-align: left; /* il faut que le texte reste aligné à gauche pour la lisibilité */
-    }
-
-    .tabs-navigation {
-        flex-direction: column; /* empile les onglets sur mobile si besoin */
-        gap: 5px;
-    }
-
-    .tab-btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    aside form input,
-    aside form textarea {
-        font-size: 14px; /* texte plus petit */
-    }
-
-    aside form button {
-        width: 100%;
-    }
-
-    .faq-question{
-        font-size: 14px;
-        padding: 15px;
-    }
-
-    .faq-answer{
-        font-size: 14px;
-    }
-
-    .faq-item.active, 
-    .faq-answer {
-        padding: 15px;
-    }
-}
-
-
-/* SMARTPHONE (moins de 480px au cas où) */
-@media screen and (max-width:480px) {
-    header {
-        padding: 10px 12px;
-    }
-
-    .logo h1 {
-        font-size: 18px; /* Titre très compact */
-    }
-
-    .logo img {
-        width: 30px;
-        height: 30px;
-    }
-
-    #theme-toggle svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    #burger-menu {
-        width: 25px;
-        height: 20px;
-    }
-    
-    section {
-        padding: 12px 8px;
-    }
-    
-    section input[type="search"],
-    section input[type="submit"] {
-        font-size: 13px;
-        padding: 10px 12px;
-    }
-    
-    fieldset {
-        padding: 12px;
-    }    
-    
-    .a-propos-div h2,
-    aside h2 {
-        font-size: 22px;
-    }
-
-    .CEO h3 {
-        font-size: 18px;
-    }
-
-    .a-propos-main article img {
-        width: 80%;
-    }
-
-}
