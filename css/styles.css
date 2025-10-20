@@ -619,8 +619,8 @@ a{
     }
 
     .search-bar {
-    flex-direction: column;
-    gap: 10px;
+        flex-direction: column;
+        gap: 10px;
     }
 
 
