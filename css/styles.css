@@ -698,6 +698,13 @@ footer .navigation ul {
     margin: 20px 0;
 }
 
+.droits {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 0;
+}
+
 
 /* Anthony et Diogo RESPONSIV */
 /* RESPONSIV TABLETTE */
@@ -806,4 +813,172 @@ footer .navigation ul {
     }
 
 
+    section input[type="search"] {
+        flex: 1 1 100%; /* Prend toute la largeur */
+        min-width: 100%;
+    }
+
+    section input[type="submit"] {
+        flex: 1 1 100%; /* bouton en dessous sur tablette */
+    }
+
+
+    .categorie-filter,
+    .tempsP-filter,
+    .filter-difficulty{ /* 2 filtres par ligne sur la tablette */
+        flex: 1 1 calc(50% - 10px); /* conseil de Bertrand. */
+        max-width: none;
+    }
+
+    .a-propos-main {
+        flex-direction: column; /* indique d'empiler sur 2 colonnes*/
+    }
+
+    .a-propos-div,
+    .a-propos-main aside {
+        width: 100%; /* indique que chaque bloc prend toute la largeur */
+    }
+
+    .a-propos-main article {
+        flex-direction: row; /* la partie CEO reste en ligne (image et texte du CEO)  */
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    body {
+        padding: 10px;
+    }
+
+    section{
+        padding: 15px 10px;
+    }
+
+    section form {
+        gap: 20px;
+    }
+
+    section input[type="search"] { /* permet d'indiquer à la barre de recherche de prendre toute la largeur  */
+        flex: 1 1 100%;
+        min-width: 100%;
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .categorie-filter,
+    .tempsP-filter,
+    .filter-difficulty {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    legend {
+        font-size: 14px;
+        padding: 25px 10px 0px 10px;
+    }
+
+    .listeC-filter label,
+    .filter-tempsP label,
+    .filter-difficulty label {
+        font-size: 13px;
+    }
+
+    .a-propos-main {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .a-propos-div,
+    .a-propos-main aside {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .a-propos-main article {
+        flex-direction: column; /* l'image et le texte du CEO doivent être en colonne sur mobile */
+        align-items: center; /* centre l'image */
+    }
+
+    .a-propos-main article img {
+        width: 60%;
+        max-width: 200px;
+        min-width: 150px;
+    };
+
+    .CEO {
+        text-align: center; /* centre le texte ur mobile */
+    }
+
+    .CEO p {
+        text-align: left; /* il faut que le texte reste aligné à gauche pour la lisibilité */
+    }
+
+    .tabs-navigation {
+        flex-direction: column; /* empile les onglets sur mobile si besoin */
+        gap: 5px;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    aside form input,
+    aside form textarea {
+        font-size: 14px; /* texte plus petit */
+    }
+
+    aside form button {
+        width: 100%;
+    }
+
+    .faq-question{
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .faq-answer{
+        font-size: 14px;
+    }
+
+    .faq-item.active, 
+    .faq-answer {
+        padding: 15px;
+    }
+}
+
+
+/* SMARTPHONE (moins de 480px au cas où) */
+@media screen and (max-width:480px) {
+    section {
+        padding: 12px 8px;
+    }
+    
+    section input[type="search"],
+    section input[type="submit"] {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    
+    fieldset {
+        padding: 12px;
+    }    
+    
+    .a-propos-div h2,
+    aside h2 {
+        font-size: 22px;
+    }
+
+    .CEO h3 {
+        font-size: 18px;
+    }
+
+    .a-propos-main article img {
+        width: 80%;
+    }
+}
 
