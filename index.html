@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="parent">
-  
+
     <header><!-- comprend un LOGO + h1 et une nav + bouton darkmode-->
         <a href="index.html" class="logo">
             <img src="assets/images/logoGourmetech.png" alt="Logo du site - G">
             <h1>GourmeTech</h1>
         </a>
+        <button id="burger-menu" aria-label="Menu de navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav>
             <ul>
                 <li><a href="index.html" class="pActive">Accueil</a></li>
@@ -38,79 +43,79 @@
            <!--Les filtres--> 
            <div class="filters-container">
                 <div class="categorie-filter"><!--Filtre categorie-->
-            <fieldset>   
-                <legend>Catégorie</legend>
-                    <ul class="listeC-filter">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="categorie[]" value="entree">
-                                Entrée
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="categorie[]" value="plat">
-                                Plat
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="categorie[]" value="dessert">
-                                Dessert
-                            </label>
-                        </li>
-                    </ul>
-                </fieldset> 
-                </div>
-                <div class="tempsP-filter"><!--Filtre Temps de préparation-->
-                <fieldset>
-                    <legend>Temps de préparation</legend>
-                        <ul class="filter-tempsP">
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="temps[]" value="rapide">
-                                    Rapide (- 30 min)
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="temps[]" value="moyen">
-                                    Moyen (30 > 60 min)
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="temps[]" value="long">
-                                    Long (> 60 min)
-                                </label>
-                            </li>
-                        </ul>
-                </fieldset>
-                </div>
-                <div class="filter-difficulty"><!--Filtre difficulté des plats-->
-                <fieldset>
-                    <legend>Difficulté</legend>
-                        <ul class="filtre-difficulte">
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="difficulte[]" value="facile">
-                                    Facile
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="difficulte[]" value="normale">
-                                    Moyen
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="difficulte[]" value="dure">
-                                    Difficile
-                                </label>
-                            </li>
-                        </ul>
-                </fieldset>
+                    <fieldset>   
+                        <legend>Catégorie</legend>
+                            <ul class="listeC-filter">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="categorie[]" value="entree">
+                                        Entrée
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="categorie[]" value="plat">
+                                        Plat
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="categorie[]" value="dessert">
+                                        Dessert
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset> 
+                    </div>
+                    <div class="tempsP-filter"><!--Filtre Temps de préparation-->
+                        <fieldset>
+                            <legend>Temps de préparation</legend>
+                                <ul class="filter-tempsP">
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="temps[]" value="rapide">
+                                            Rapide (- 30 min)
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="temps[]" value="moyen">
+                                            Moyen (30 > 60 min)
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="temps[]" value="long">
+                                            Long (> 60 min)
+                                        </label>
+                                    </li>
+                                </ul>
+                        </fieldset>
+                    </div>
+                    <div class="filter-difficulty"><!--Filtre difficulté des plats-->
+                        <fieldset>
+                            <legend>Difficulté</legend>
+                                <ul class="filtre-difficulte">
+                                    <li>
+                                        <label>
+                                        <input type="checkbox" name="difficulte[]" value="facile">
+                                        Facile
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="difficulte[]" value="normale">
+                                        Moyen
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="difficulte[]" value="dure">
+                                        Difficile
+                                    </label>
+                                </li>
+                            </ul>
+                    </fieldset>
                 </div>
             </div>
         </form>
@@ -118,8 +123,7 @@
   
 <main class="cards"> <!---->
         <article class="card-content">
-            <img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image">  
-            <button id="favoris" class="like"><img src="/assets/icons/iconefavori.png"></button>
+            <img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image"> 
             <h2 class="card-title-1">Pasteis de Chaves</h2>
             <div class="typologie">
                 <p class="type"><span>Dessert</span></p>
@@ -129,8 +133,7 @@
             <a href="/recette.html"><button class="Bouton">Voir la recette</button></a>
         </article>
         <article class="card-content">
-            <img src="assets/images/rougail_saucisses.png" alt="Rougail Saucisse" class="card-image">
-            <button id="favoris" class="like"><img src="/assets/icons/iconefavori.png"></button>  
+            <img src="assets/images/rougail_saucisses.png" alt="Rougail Saucisse" class="card-image">  
             <h2 class="card-title-2">Rougail Saucisse</h2>
             <div class="typologie">
                 <p class="type"><span>Plat</span></p>
@@ -140,8 +143,7 @@
             <a href="/recette.html"><button class="Bouton">Voir la recette</button></a>
         </article>
         <article class="card-content">
-            <img src="assets/images/pizzamargerita.jpg" alt="Pizza Margerita" class="card-image"> 
-            <button id="favoris" class="like"><img src="/assets/icons/iconefavori.png"></button> 
+            <img src="assets/images/pizzamargerita.jpg" alt="Pizza Margerita" class="card-image">  
             <h2 class="card-title-3">Pizza Margerita</h2>
             <div class="typologie">
                 <p class="type"><span>Plat</span></p>
@@ -168,7 +170,6 @@
         </nav>
         <hr class="trait">
         <p class="droits">2025 GourmeThech - Tous les droits réservés</p>
-
     </footer>
   </body>
 </html>
