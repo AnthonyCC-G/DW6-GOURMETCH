@@ -59,8 +59,8 @@ header, section, main, footer {
 /* -----------------------------------------------*/
 /* --------- PARTIE ANTHONY ----------------------*/
 /* -----------------------------------------------*/
-/* HEADER & SECTION */
 
+/* HEADER & SECTION */
 
 /* HEADER */
 header {
@@ -595,3 +595,110 @@ a{
     margin-top: 0%;
 }
 
+
+
+/* Anthony et Diogo RESPONSIV */
+/* RESPONSIV TABLETTE */
+
+@media screen and (max-width: 1024px) {
+    .a-propos-main {
+        flex-direction: : column; /* indique d'empiler sur 2 colonnes*/
+    }
+
+    .a-propos-div,
+    .a-propos-main aside {
+        width: 100%; /* indique que chaque bloc prend toute la largeur */
+    }
+
+    .a-propos-main article {
+        flex-direction: row; /* la partie CEO reste en ligne (image et texte du CEO)  */
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    body {
+        padding: 10px;
+    }
+
+    .a-propos-main {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .a-propos-div,
+    .a-propos-main aside {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .a-propos-main article {
+        flex-direction: column; /* l'image et le texte du CEO doivent être en colonne sur mobile */
+        align-items: center; /* centre l'image */
+    }
+
+    .a-propos-main article img {
+        width: 60%;
+        max-width: 200px;
+        min-width: 150px;
+    };
+
+    .CEO {
+        text-align: center; /* centre le texte ur mobile */
+    }
+
+    .CEO p {
+        text-align: left; /* il faut que le texte reste aligné à gauche pour la lisibilité */
+    }
+
+    .tabs-navigation {
+        flex-direction: column; /* empile les onglets sur mobile si besoin */
+        gap: 5px;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    aside form input,
+    aside form textarea {
+        font-size: 14px; /* texte plus petit */
+    }
+
+    aside form button {
+        width: 100%;
+    }
+
+    .faq-question{
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .faq-answer{
+        font-size: 14px;
+    }
+
+    .faq-item.active, 
+    .faq-answer {
+        padding: 15px;
+    }
+}
+
+
+/* SMARTPHONE (moins de 480px au cas où) */
+@media screen and (max-width:480px) {
+    .a-propos-div h2,
+    aside h2 {
+        font-size: 22px;
+    }
+
+    .CEO h3 {
+        font-size: 18px;
+    }
+
+    .a-propos-main article img {
+        width: 80%;
+    }
+
+}
