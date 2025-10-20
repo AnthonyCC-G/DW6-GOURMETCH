@@ -546,7 +546,6 @@ aside form button:active{
 }
 
 
-
 /* -----------------------------------------------*/
 /* --------- PARTIE DIOGO ----------------------*/
 /* -----------------------------------------------*/
@@ -629,27 +628,80 @@ aside form button:active{
     font-size: large;
     padding: 0px 6px;
 }
+
+
+/* FOOTER */
 .footer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 8px;
-}
-    
-.div1 {
-    grid-row: span 2 / span 2;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding: 40px;
 }
 
-.div2 {
-    grid-row: span 2 / span 2;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
 }
 
-.div3 {
-    grid-column: span 2 / span 2;
-    grid-row-start: 3;
+
+/* DIV navigation */
+.navigation {
+    flex: 1;
+    max-width: 400px;
 }
 
-.div4 {
-    grid-column: span 2 / span 2;
-    grid-row-start: 4;
+
+.title-footer {
+    color: var(--color-orange);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+footer .navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.naviagation a {
+    color: var(--color-orange);
+    text-decoration: none;
+}
+
+/* DIV : propos */
+.propos {
+    flex: 1;
+    max-width: 500px;
+}
+
+
+.propos h2 {
+    color: var(--color-orange);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.propos p {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+
+.trait {
+    width: 100%;
+    border: none;
+    border-top:  1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+.droits{
+    text-align: center;
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 0;
 }
