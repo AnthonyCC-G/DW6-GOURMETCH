@@ -11,6 +11,7 @@
     --text-color: black; /* couleur écriture */
     --taille-h1: 40px; /* Taille de police h1 ?*/
     --radius-border: 12px; /* il y a des bordures partout sur la maquette */
+    --header-bg:white;
     
 }
 
@@ -53,10 +54,11 @@ body.dark-mode {
     --color-background : #1a1a1a;
     --text-color: #ffff;
     color: #e0e0e0;
+    --header-bg: #2a2a2a;
 }
 
 body.dark-mode header {
-    background-color: #2a2a2a;
+    background-color: var(--header-bg);
     color: #ffff;
 }
 
