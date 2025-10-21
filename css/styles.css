@@ -716,7 +716,6 @@ aside form button:active{
 }
 
 
-
 /* -----------------------------------------------*/
 /* --------- PARTIE DIOGO ----------------------*/
 /* -----------------------------------------------*/
@@ -800,7 +799,6 @@ aside form button:active{
     padding: 0px 6px;
 }
 
-
 /* FOOTER */
 .footer {
     grid-row: 4;
@@ -816,7 +814,6 @@ aside form button:active{
     gap: 40px;
     width: 100%;
 }
-
 
 /* DIV navigation */
 .navigation {
@@ -876,6 +873,49 @@ footer .navigation ul {
     font-size: 14px;
     margin: 0;
 }
+
+.photo-pastel{
+    width: 30rem;
+    height: 25rem;
+    border-radius: 12px; 
+    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2); 
+    
+}
+
+.etapes{
+    margin-top: 2%;
+    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 0px 6px;
+}
+.quantites{
+    margin-top: 2%;
+    box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 0px 6px;
+
+}
+.quantites-ingredients{
+    list-style-type: none;  
+}
+.logo-item{
+    width: 20px;
+}
+
+
+/* ----------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
 
 
 /* Anthony et Diogo RESPONSIV */
@@ -1211,3 +1251,4 @@ footer .navigation ul {
         width: 80%;
     }
 }
+
