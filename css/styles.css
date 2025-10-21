@@ -668,7 +668,7 @@ footer .navigation ul {
 }
 
 .navigation a {
-    color: var(--color-orange);
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -707,8 +707,8 @@ footer .navigation ul {
 
 
 /* Anthony et Diogo RESPONSIV */
+/* -----------------TABLETTE ----------------------*/
 /* RESPONSIV TABLETTE */
-
 @media screen and (max-width: 1024px) {
     header{
         padding: 15px 20px;
@@ -844,10 +844,45 @@ footer .navigation ul {
     }
 }
 
-
-@media screen and (max-width:768px) {
-    body {
+/* -----------SMARTPHONE-----------------*/
+@media screen and (max-width:768px) {   
+        body {
         padding: 10px;
+    }
+
+    header {
+        padding: 12px 15px;
+        gap: 10px; /* Ajoute un espacement entre les éléments */
+    }
+
+    .logo {
+        gap: 8px; /* Réduit l'espace entre logo et titre */
+        flex: 1; /* Permet au logo de prendre l'espace disponible */
+    }
+
+    .logo h1 {
+        font-size: 22px; /* Titre encore plus petit sur mobile */
+    }
+
+    .logo img {
+        width: 35px; /* Logo plus petit */
+        height: 35px;
+    }
+
+    /* Groupe les boutons burger et dark mode ensemble */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* S'assure que les boutons restent à droite */
+    #theme-toggle {
+        order: 2; /* Met le toggle en 2e position */
+    }
+
+    #burger-menu {
+        order: 3; /* Met le burger en 3e position */
     }
 
     section{
@@ -954,6 +989,29 @@ footer .navigation ul {
 
 /* SMARTPHONE (moins de 480px au cas où) */
 @media screen and (max-width:480px) {
+        header {
+        padding: 10px 12px;
+    }
+
+    .logo h1 {
+        font-size: 18px; /* Titre très compact */
+    }
+
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    #theme-toggle svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    #burger-menu {
+        width: 25px;
+        height: 20px;
+    }
+    
     section {
         padding: 12px 8px;
     }
