@@ -41,8 +41,14 @@ function initialise () {
     themeToggle.addEventListener('click', toggleDarkMode);
 }
 
-//lancement au chargement
+//appel de la fonction au chargement de la page
 initialise();
+
+//-----------------------------------------
+//--- FIN DU DARK -------------------------
+//-----------------------------------------
+
+
 
 
 //===  PARTIE DIOGO   ======================
