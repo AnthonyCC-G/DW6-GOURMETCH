@@ -46,8 +46,8 @@
     <section class="search-filter"><!--Barre de recherche-->
         <form action="rechercheRecette" method="get"> <!--Formulaire pour rechercher une recette-->
            <div class="search-bar">
-                <input type="search" name="rechercheR" placeholder="Rechercher une recette..." aria-label="champ de recherche pour une recette" required>
-                <input type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
+                <input id="valSearchBar" type="search" name="rechercheR" placeholder="Rechercher une recette..." aria-label="champ de recherche pour une recette" required>
+                <input id="btnRech" type="submit" value="Rechercher" aria-label="Rechercher" class="btn-recherche">
            </div>
            <!--Les filtres--> 
            <div class="filters-container">
@@ -130,8 +130,11 @@
         </form>
     </section>
   
-<main class="cards"> <!---->
-        <article class="card-content">
+<main class="cards"> <!--CARD--><!--AJOUT DES DATASET pour JAVASCRIPT ET LE FILTRE-->
+        <article class="card-content" 
+                 data-categorie="entree" 
+                 data-temps="25" 
+                 data-difficulte="moyen">
             <img src="assets/images/pasteisdechaves.jpg" alt="Pasteis de Chaves" class="card-image"> 
             <h2 class="card-title-1">Pasteis de Chaves</h2>
             <button class="like"><img src="assets/icons/iconefavori.png" alt="image de l'icone LIKE"></button>
@@ -142,7 +145,10 @@
             </div>
             <a href="/recette.html"><button class="Bouton">Voir la recette</button></a>
         </article>
-        <article class="card-content">
+        <article class="card-content" 
+                 data-categorie="plat" 
+                 data-temps="60" 
+                 data-difficulte="difficile">
             <img src="assets/images/rougail_saucisses.png" alt="Rougail Saucisse" class="card-image">  
             <h2 class="card-title-2">Rougail Saucisse</h2>
             <button class="like"><img src="assets/icons/iconefavori.png" alt="image de l'icone LIKE"></button>
@@ -153,7 +159,10 @@
             </div>
             <a href="/recette.html"><button class="Bouton">Voir la recette</button></a>
         </article>
-        <article class="card-content">
+        <article class="card-content" 
+                 data-categorie="plat" 
+                 data-temps="15" 
+                 data-difficulte="facile">
             <img src="assets/images/pizzamargerita.jpg" alt="Pizza Margerita" class="card-image">  
             <h2 class="card-title-3">Pizza Margerita</h2>
             <button class="like"><img src="assets/icons/iconefavori.png" alt="image de l'icone LIKE"></button>
@@ -187,4 +196,3 @@
     </footer>
   </body>
 </html>
-
