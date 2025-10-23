@@ -44,7 +44,6 @@ function initialise () {
 
 //appel de la fonction au chargement de la page
 initialise();
-
 //-----------------------------------------
 //--- FIN DU DARK MODE --------------------
 
@@ -106,7 +105,6 @@ navLinks.forEach(function(link) {
 
 //-----------------------------------------
 //--- FIN DU MENU BURGER -------------------
-
 
 
 //-----------------------------------------
@@ -225,7 +223,7 @@ function appliquerFiltres() {
             if (!difficultesSelectionnees.includes(difficulteCard)) {
                 afficherCarte = false;
             }
-        }// même logique que le temps
+        }// même logique que catégorie
         
 
         if (afficherCarte) { // après avoir vérifié si la carte a passé les filtres,
