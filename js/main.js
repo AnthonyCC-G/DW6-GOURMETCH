@@ -31,14 +31,15 @@ function toggleDarkMode() {
 
 //au chargement de la page
 function initialise () {
-    //on vérifie si le dark mode était activé
     const saveTheme = localStorage.getItem('darkMode');
     if (saveTheme === 'true') {
         document.body.classList.add('dark-mode');
     }
 
-    //écouteur d'évènement sur le bouton
-    themeToggle.addEventListener('click', toggleDarkMode);
+    // ✅ Vérification ajoutée
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleDarkMode);
+    }
 }
 
 //appel de la fonction au chargement de la page
@@ -47,6 +48,64 @@ initialise();
 //-----------------------------------------
 //--- FIN DU DARK MODE --------------------
 
+//-----------------------------------------
+// --- MENU BURGER -------------------------
+
+// On sélectionne les éléments nécessaires
+const burgerMenu = document.querySelector('#burger-menu');
+const nav = document.querySelector('nav');
+
+if (burgerMenu && nav) {
+    function toggleMenu() {
+        burgerMenu.classList.toggle('active');
+        nav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    }
+
+    burgerMenu.addEventListener('click', toggleMenu);
+    
+    // Fonction pour ouvrir/fermer le menu
+    function toggleMenu() {
+        // On ajoute ou retire la classe "active" sur le bouton burger
+        burgerMenu.classList.toggle('active');
+    
+        // On ajoute ou retire la classe "active" sur la nav
+        nav.classList.toggle('active');
+    
+        // On ajoute ou retire la classe "menu-open" sur le body
+        // (pour l'overlay sombre et bloquer le scroll)
+        document.body.classList.toggle('menu-open');
+    }
+
+    // Écouteur d'événement sur le bouton burger
+    burgerMenu.addEventListener('click', toggleMenu);
+}
+
+
+// Fermer le menu quand on clique sur l'overlay (la zone sombre)
+document.body.addEventListener('click', function(e) {
+    // On vérifie si le menu est ouvert
+    if (document.body.classList.contains('menu-open')) {
+        // On vérifie si le clic n'est PAS sur le burger ou dans la nav
+        if (!burgerMenu.contains(e.target) && !nav.contains(e.target)) {
+            toggleMenu(); // On ferme le menu
+        }
+    }
+});
+
+// Fermer le menu quand on clique sur un lien de navigation
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+        // On ferme le menu si on est sur mobile/tablette
+        if (nav.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+});
+
+//-----------------------------------------
+//--- FIN DU MENU BURGER -------------------
 
 
 
@@ -59,30 +118,34 @@ const btnRech = document.querySelector('#btn-recherche');//le bouton "rechercher
 const cards = document.querySelectorAll('.card-content');//les cartes présentent sur la page
 
 //écouteur d'évènement sur la "saisie" dans la barre de recherche LORSQU'une touche est relachée
-searchBar.addEventListener("keyup", (e) => {
-    const searchedText = e.target.value.toLowerCase(); //LowerCase permet de convertir en minuscule
-    console.log('Texte saisie', searchedText); // pour voir le texte saisie dans la barre de recherche
 
-    //parcourir toutes les "cards"
-    cards.forEach(card => { //pour chacune des "cards" présentent
-        const recipeTitle = card.querySelector('h2').textContent.toLowerCase(); 
-        //variable qui permettra de récupérer le titre "h2" de la recette dans la carte
+if (searchBar){
+    searchBar.addEventListener("keyup", (e) => {
+        const searchedText = e.target.value.toLowerCase(); //LowerCase permet de "convertir" en minuscule
+        console.log('Texte saisie', searchedText); // pour voir le texte saisie dans la barre de recherche
 
-        if(recipeTitle.includes(searchedText)) {// si le titre contient le texte recherché, 
-            card.style.display  = 'block';//on affiche la carte la carte 
-        } else {
-            card.style.display = 'none'; //sinon on la cache
-        }
+        //parcourir toutes les "cards"
+        cards.forEach(card => { //pour chacune des "cards" présentent
+            const recipeTitle = card.querySelector('h2').textContent.toLowerCase(); 
+            //variable qui permettra de récupérer le titre "h2" de la recette dans la carte
+
+            if(recipeTitle.includes(searchedText)) {// si le titre contient le texte recherché, 
+                card.style.display  = 'block';//on affiche la carte 
+            } else {
+                card.style.display = 'none'; //sinon on la cache
+            }
+        });
+    })
+}
+
+
+    //il faut empêcher le rechargement de la page lorsque l'on appuie sur le bouton "Rechercher"
+    const formR = document.querySelector('.search-filter form');
+    if (formR) { //<= parceque la barre de recherche ne se situe pas sur toutes les pages (vu erreur JS dans la console, JS tente de chercher un élément qui n'existe pas sur 3 pages)
+    formR.addEventListener('submit', (e) => {
+        e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
     });
-})
-
-
-//il faut empêcher le rechargement de la page lorsque l'on appuie sur le bouton "Rechercher"
-const formR = document.querySelector('.search-filter form');
-formR.addEventListener('submit', (e) => {
-    e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
-});
-
+}
 
 //--- LES FILTRES --DE LA ZONE DE RECHERCHE----
 
@@ -174,17 +237,23 @@ function appliquerFiltres() {
 }
 
 // Ecouteur d'évènement sur tous les checkboxes
-categorieCheckboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', appliquerFiltres); // change = evenement qui se déclenche quand on coche ou décoche une checkbox
-});
+if (categorieCheckboxes.length > 0){
+    categorieCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', appliquerFiltres); // change = evenement qui se déclenche quand on coche ou décoche une checkbox
+    });
+}
 
-tempsCheckboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', appliquerFiltres);
-});
+if(tempsCheckboxes.length > 0) {
+    tempsCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', appliquerFiltres);
+    });
+}
 
-difficulteCheckboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', appliquerFiltres);
-});
+if(difficulteCheckboxes.length > 0) {
+    difficulteCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', appliquerFiltres);
+    });
+}
 
 
 

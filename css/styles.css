@@ -74,6 +74,11 @@ body.dark-mode nav a:hover,
 body.dark-mode nav a.pActive {
     color: var(--color-orange);
 }
+
+body.dark-mode nav {
+    background-color: var(--header-bg); 
+}
+
 body.dark-mode section {
     background-color: #2a2a2a;
 }
@@ -967,7 +972,8 @@ footer .navigation ul {
         transition: right 0.4s ease;
         z-index: 999;
         overflow-y: auto;
-    };
+        display: block;
+    }
 
     /* Quand le menu est ouvert */
     nav.active {
@@ -977,8 +983,10 @@ footer .navigation ul {
 
     /* les liens en colonne*/
     nav ul {
+        display: flex;
         flex-direction: column;
         gap: 20px;
+        width: 100%;
     }
 
     nav ul li{
@@ -989,7 +997,7 @@ footer .navigation ul {
         display:block;
         padding: 15px 20px;
         border-radius: 8px;
-        transition: backrgound-color 0.3s;
+        transition: background-color 0.3s;
     }
 
     nav a:hover{
