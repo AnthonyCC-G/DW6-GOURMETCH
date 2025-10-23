@@ -106,6 +106,72 @@ navLinks.forEach(function(link) {
 //-----------------------------------------
 //--- FIN DU MENU BURGER -------------------
 
+//-----------------------------------------
+// --- SYSTÈME D'ONGLETS (PAGE À PROPOS) --
+//-----------------------------------------
+
+// On sélectionne tous les boutons d'onglets
+const tabButtons = document.querySelectorAll('.tab-button, .tab-button-active');
+const tabContents = document.querySelectorAll('.tab-content');
+
+// Fonction pour changer d'onglet
+function switchTab(tabName) {
+    // On parcourt tous les boutons
+    tabButtons.forEach(button => {
+        // On retire la classe active de tous les boutons
+        button.classList.remove('tab-button-active');
+        button.classList.add('tab-button');
+        
+        // On ajoute la classe active au bouton cliqué
+        if (button.dataset.tab === tabName) {
+            button.classList.remove('tab-button');
+            button.classList.add('tab-button-active');
+        }
+    });
+    
+    // On parcourt tous les contenus d'onglets
+    tabContents.forEach(content => {
+        // On retire la classe active de tous les contenus
+        content.classList.remove('active');
+        
+        // On ajoute la classe active au contenu correspondant
+        if (content.id === tabName + '-content') {
+            content.classList.add('active');
+        }
+    });
+}
+
+// On ajoute un écouteur sur chaque bouton d'onglet
+if (tabButtons.length > 0) {
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabName = this.dataset.tab;
+            switchTab(tabName);
+        });
+    });
+}
+
+//-----------------------------------------
+// --- ACCORDÉON FAQ -----------------------
+//-----------------------------------------
+
+// On sélectionne toutes les questions FAQ
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+// On ajoute un écouteur sur chaque question
+if (faqQuestions.length > 0) {
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            // On récupère l'élément parent (faq-item)
+            const faqItem = this.parentElement;
+            
+            // On toggle (ajoute/retire) la classe active
+            faqItem.classList.toggle('active');
+        });
+    });
+}
+
+
 
 //-----------------------------------------
 // --- SEARCH BAR -------------------------
@@ -137,12 +203,12 @@ if (searchBar){
 }
 
 
-    //il faut empêcher le rechargement de la page lorsque l'on appuie sur le bouton "Rechercher"
-    const formR = document.querySelector('.search-filter form');
-    if (formR) { //<= parceque la barre de recherche ne se situe pas sur toutes les pages (vu erreur JS dans la console, JS tente de chercher un élément qui n'existe pas sur 3 pages)
-    formR.addEventListener('submit', (e) => {
-        e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
-    });
+//il faut empêcher le rechargement de la page lorsque l'on appuie sur le bouton "Rechercher"
+const formR = document.querySelector('.search-filter form');
+if (formR) { //<= parceque la barre de recherche ne se situe pas sur toutes les pages (vu erreur JS dans la console, JS tente de chercher un élément qui n'existe pas sur 3 pages)
+formR.addEventListener('submit', (e) => {
+e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
+});
 }
 
 //--- LES FILTRES --DE LA ZONE DE RECHERCHE----
