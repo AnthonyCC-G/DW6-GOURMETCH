@@ -762,7 +762,7 @@ aside form button:active{
     display:flex;
     align-items: center;
     justify-content: left;
-    gap: 10px;
+    gap: 2%;
     padding: 15px 10px 10px;
     
 }
@@ -893,13 +893,13 @@ footer .navigation ul {
     margin-top: 2%;
     box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
     border-radius: 12px;
-    padding: 0px 6px;
+    padding: 10px 10px;
 }
 .quantites{
     margin-top: 2%;
     box-shadow: 0 0 15px 5px  rgba(0, 0, 0, 0.2);
     border-radius: 12px;
-    padding: 0px 6px;
+    padding: 10px 10px;
 
 }
 .quantites-ingredients{
@@ -1261,10 +1261,9 @@ footer .navigation ul {
         padding: 12px;
     }
 
-    .typologie{ 
-        border-style: solid;
-
-    }   
+    .typologie p{
+        width: 80px;
+    }
     
     .a-propos-div h2,
     aside h2 {
@@ -1278,5 +1277,12 @@ footer .navigation ul {
     .a-propos-main article img {
         width: 80%;
     }
+    footer{
+        border: solid;
+        display: flex;
+        flex-direction: column;
+    }
+    
+
 } 
 
