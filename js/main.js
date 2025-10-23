@@ -187,5 +187,9 @@ difficulteCheckboxes.forEach(function(checkbox) {
 });
 
 
+
+
+
+
 //===  PARTIE DIOGO   ======================
 //==========================================
