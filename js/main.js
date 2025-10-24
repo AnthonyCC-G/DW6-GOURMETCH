@@ -3,16 +3,19 @@
 //Auteurs : Anthony & Diogo
 //==========================================
 
-//===  PARTIE ANTHONY ======================
+//---  PARTIE ANTHONY ----------------------
 //==========================================
 
-//== VARIABLES==
+//== DARK MODE==
 //==============
+
 //je sélectionne le bouton avec l'ID et je le stocke dans une variable
 const themeToggle = document.querySelector("#theme-toggle");
 
 
 //==FUNCTION DARK MODE==
+//======================
+
 //la fonction toggleDarkMode ajoute ou retire la classe dark-mode 
 // sur la balise body.
 //Si dark-mode n'existe pas => on l'ajoute
@@ -29,14 +32,14 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', darkMode); 
 }
 
-//au chargement de la page
+//Au chargement de la page
 function initialise () {
     const saveTheme = localStorage.getItem('darkMode');
     if (saveTheme === 'true') {
         document.body.classList.add('dark-mode');
     }
 
-    // ✅ Vérification ajoutée
+    // Vérification
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleDarkMode);
     }
@@ -44,36 +47,33 @@ function initialise () {
 
 //appel de la fonction au chargement de la page
 initialise();
-//-----------------------------------------
+
 //--- FIN DU DARK MODE --------------------
+//=========================================
 
-//-----------------------------------------
+
 // --- MENU BURGER -------------------------
+//==========================================
 
-// On sélectionne les éléments nécessaires
+// Sélection des éléments (ici le menu burger et la nav)
 const burgerMenu = document.querySelector('#burger-menu');
 const nav = document.querySelector('nav');
 
-if (burgerMenu && nav) {
+if (burgerMenu && nav) { // s'il existe un menu burger et une nav, 
     function toggleMenu() {
-        burgerMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active'); // on active via le toggle la class .active (le css fait tout ici)
         nav.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        document.body.classList.toggle('menu-open'); //menu-open = voir dans le CSS
     }
 
-    burgerMenu.addEventListener('click', toggleMenu);
+    burgerMenu.addEventListener('click', toggleMenu); // au clic
     
-    // Fonction pour ouvrir/fermer le menu
+    // Ouvrir/fermer le menu
     function toggleMenu() {
-        // On ajoute ou retire la classe "active" sur le bouton burger
-        burgerMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');  //ajoute ou retire la classe "active" sur le bouton burger
+        nav.classList.toggle('active');// ajoute ou retire la classe "active" sur la nav
     
-        // On ajoute ou retire la classe "active" sur la nav
-        nav.classList.toggle('active');
-    
-        // On ajoute ou retire la classe "menu-open" sur le body
-        // (pour l'overlay sombre et bloquer le scroll)
-        document.body.classList.toggle('menu-open');
+        document.body.classList.toggle('menu-open'); // ajoute ouretire l'ombrage sur la page
     }
 
     // Écouteur d'événement sur le bouton burger
@@ -81,46 +81,41 @@ if (burgerMenu && nav) {
 }
 
 
-// Fermer le menu quand on clique sur l'overlay (la zone sombre)
-document.body.addEventListener('click', function(e) {
-    // On vérifie si le menu est ouvert
-    if (document.body.classList.contains('menu-open')) {
-        // On vérifie si le clic n'est PAS sur le burger ou dans la nav
-        if (!burgerMenu.contains(e.target) && !nav.contains(e.target)) {
+
+document.body.addEventListener('click', function(e) { // au click si l'utilisateur clique sur 
+    if (document.body.classList.contains('menu-open')) { //si le clic est sur le menu ouvert
+        if (!burgerMenu.contains(e.target) && !nav.contains(e.target)) { // si le clic est sur le menu buger et la nav
             toggleMenu(); // On ferme le menu
         }
     }
 });
 
-// Fermer le menu quand on clique sur un lien de navigation
-const navLinks = document.querySelectorAll('nav a');
-navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-        // On ferme le menu si on est sur mobile/tablette
+// on ferme si le click est sur un lien de navigation
+const navLinks = document.querySelectorAll('nav a'); 
+navLinks.forEach(function(link) { // pour chaque lien de navigation
+    link.addEventListener('click', function() { // il ne faut pas oublier si on est sur tablette ou smartphone,
         if (nav.classList.contains('active')) {
             toggleMenu();
         }
     });
 });
 
-//-----------------------------------------
 //--- FIN DU MENU BURGER -------------------
+//==========================================
 
-//-----------------------------------------
-// --- SYSTÈME D'ONGLETS (PAGE À PROPOS) --
-//-----------------------------------------
 
-// On sélectionne tous les boutons d'onglets
+// --SYSTÈME D'ONGLETS SUR LA PAGE À PROPOS 
+//=========================================
+
+// Sélection des éléments
 const tabButtons = document.querySelectorAll('.tab-button, .tab-button-active');
 const tabContents = document.querySelectorAll('.tab-content');
 
-// Fonction pour changer d'onglet
-function switchTab(tabName) {
-    // On parcourt tous les boutons
-    tabButtons.forEach(button => {
-        // On retire la classe active de tous les boutons
-        button.classList.remove('tab-button-active');
-        button.classList.add('tab-button');
+// Pour changer d'onglet
+function switchOnglet(tabName) {
+    tabButtons.forEach(button => { //pour chaque bouton
+        button.classList.remove('tab-button-active'); // on enlève la classe .active
+        button.classList.add('tab-button'); 
         
         // On ajoute la classe active au bouton cliqué
         if (button.dataset.tab === tabName) {
@@ -129,60 +124,56 @@ function switchTab(tabName) {
         }
     });
     
-    // On parcourt tous les contenus d'onglets
+    // Il faut chercher dans les contenus d'onglet, 
     tabContents.forEach(content => {
-        // On retire la classe active de tous les contenus
-        content.classList.remove('active');
+        content.classList.remove('active'); // on enlève la classe "active"
         
-        // On ajoute la classe active au contenu correspondant
-        if (content.id === tabName + '-content') {
-            content.classList.add('active');
+        if (content.id === tabName + '-content') { // si l'id du contenu correspond, 
+            content.classList.add('active'); // on ajoute la classe active
         }
     });
 }
 
-// On ajoute un écouteur sur chaque bouton d'onglet
+// écouteur sur chaque bouton
 if (tabButtons.length > 0) {
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const tabName = this.dataset.tab;
-            switchTab(tabName);
+            switchOnglet(tabName);
         });
     });
 }
 
-//-----------------------------------------
-// --- ACCORDÉON FAQ -----------------------
-//-----------------------------------------
 
-// On sélectionne toutes les questions FAQ
+// --- ACCORDÉON FAQ -----------------------
+//==========================================
+
+// Sélection des questions de la FAQ
 const faqQuestions = document.querySelectorAll('.faq-question');
 
-// On ajoute un écouteur sur chaque question
+// s'il y a présence de "faq-question" sur la page (si présence, cela veut dire qu'il y en a plus que 0), 
 if (faqQuestions.length > 0) {
-    faqQuestions.forEach(question => {
+    faqQuestions.forEach(question => { // pour chaque question cliquée
         question.addEventListener('click', function() {
-            // On récupère l'élément parent (faq-item)
-            const faqItem = this.parentElement;
+            const faqItem = this.parentElement; // il faut récupérer la réponse associée ("This" renvoie à "question", ou l'enfant de l'élément parent qui est "faq-question")
             
-            // On toggle (ajoute/retire) la classe active
-            faqItem.classList.toggle('active');
+            faqItem.classList.toggle('active'); //j'utilise la méthode toggle pour afficher oui ou non l'enfant.
         });
     });
 }
 
 
 
-//-----------------------------------------
-// --- SEARCH BAR -------------------------
+
+// --- SEARCH BAR ------------------------
+//========================================
 
 //on selectionne les éléments qui nous intéressent dans le form sur l'index.html
 const searchBar = document.querySelector('#valSearchBar'); //la valeur tapée dans l'input
 const btnRech = document.querySelector('#btn-recherche');//le bouton "rechercher"
 const cards = document.querySelectorAll('.card-content');//les cartes présentent sur la page
 
-//écouteur d'évènement sur la "saisie" dans la barre de recherche LORSQU'une touche est relachée
-
+//écouteur d'évènement sur la "saisie" dans la barre de recherche LORSQU'une touche est 
 if (searchBar){
     searchBar.addEventListener("keyup", (e) => {
         const searchedText = e.target.value.toLowerCase(); //LowerCase permet de "convertir" en minuscule
@@ -211,7 +202,8 @@ e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
 });
 }
 
-//--- LES FILTRES --DE LA ZONE DE RECHERCHE----
+//--- LES FILTRES DE LA ZONE DE RECHERCHE ----
+//============================================
 
 const categorieCheckboxes = document.querySelectorAll('input[name="categorie[]"]'); //cible tous les selecteurs CSS qui ont un attribut name = à "catégorie"
 const tempsCheckboxes = document.querySelectorAll('input[name="temps[]"]'); // cible tous les selecteurs css qui ont un attribut name = à "temps"
@@ -219,14 +211,14 @@ const difficulteCheckboxes = document.querySelectorAll('input[name="difficulte[]
 
 // APPLIQUE FILTRE
 function appliquerFiltres() {
-    // d'abord, je créé des variables qui renvoie un tableau vide (utile)
+    // d'abord, je créé des variables qui renvoie un tableau vide (utile pour facilité la suite)
     const categoriesSelectionnees = []; //categories
     const tempsSelectionnes = [];// temps
     const difficultesSelectionnees = []; // difficulte
     
     // checkboxes CATEGORIES
     categorieCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // le "if" c'est pour vérifier que l'on a bien des checkboxes sur la page (car toutes les pages ne comportent pas des checkboxs)
             categoriesSelectionnees.push(checkbox.value);
         }
     });// si la checkboxe catégories est cochée alors la propriétée ".checked" rennvoie "true" sinon "false"
@@ -234,22 +226,22 @@ function appliquerFiltres() {
     
     // checkboxes TEMPS
     tempsCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // if = même principe que la ligne 229
             tempsSelectionnes.push(checkbox.value);
         }
     });//même principe que CATEGORIE
     
     // checkboxes DIFFICULTE
     difficulteCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // if = même principe que la ligne 229
             difficultesSelectionnees.push(checkbox.value);
         }
     });//même principe que CATEGORIE
     
     //TEST//
-    //console.log('Catégories sélectionnées:', categoriesSelectionnees); // Pour vérifier ce que renvoie la valeur cochée
-    //console.log('Temps sélectionnés:', tempsSelectionnes);// Pour vérifier ce que renvoie la valeur cochée
-    //console.log('Difficultés sélectionnées:', difficultesSelectionnees);// Pour vérifier ce que renvoie la valeur cochée
+    //console.log('Catégories sélectionnées:', categoriesSelectionnees); // Pour vérifier ce que renvoie la checkbox cochée
+    //console.log('Temps sélectionnés:', tempsSelectionnes);// Pour vérifier ce que renvoie la checkbox cochée
+    //console.log('Difficultés sélectionnées:', difficultesSelectionnees);// Pour vérifier ce que renvoie la checkbox cochée
     
     
     cards.forEach(function(card) {
@@ -324,5 +316,5 @@ if(difficulteCheckboxes.length > 0) {
 
 
 
-//===  PARTIE DIOGO   ======================
+//---  PARTIE DIOGO   ----------------------
 //==========================================
