@@ -943,16 +943,6 @@ footer .navigation ul {
 ---------------------------------------------------------------------------*/
 
 
-
-
-
-
-
-
-
-
-
-
 /* Anthony et Diogo RESPONSIV */
 /* -----------------TABLETTE ----------------------*/
 /* RESPONSIV TABLETTE */
@@ -1132,6 +1122,12 @@ footer .navigation ul {
     .faq-item.active .faq-answer {
         padding: 18px;
     }
+
+    .a-propos-footer {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 /* -----------SMARTPHONE-----------------*/
