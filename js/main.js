@@ -219,14 +219,14 @@ const difficulteCheckboxes = document.querySelectorAll('input[name="difficulte[]
 
 // APPLIQUE FILTRE
 function appliquerFiltres() {
-    // d'abord, je créé des variables qui renvoie un tableau vide (utile)
+    // d'abord, je créé des variables qui renvoie un tableau vide (utile pour facilité la suite)
     const categoriesSelectionnees = []; //categories
     const tempsSelectionnes = [];// temps
     const difficultesSelectionnees = []; // difficulte
     
     // checkboxes CATEGORIES
     categorieCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // le "if" c'est pour vérifier que l'on a bien des checkboxes sur la page (car toutes les pages ne comportent pas des checkboxs)
             categoriesSelectionnees.push(checkbox.value);
         }
     });// si la checkboxe catégories est cochée alors la propriétée ".checked" rennvoie "true" sinon "false"
@@ -234,22 +234,22 @@ function appliquerFiltres() {
     
     // checkboxes TEMPS
     tempsCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // if = même principe que la ligne 229
             tempsSelectionnes.push(checkbox.value);
         }
     });//même principe que CATEGORIE
     
     // checkboxes DIFFICULTE
     difficulteCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.checked) { // if = même principe que la ligne 229
             difficultesSelectionnees.push(checkbox.value);
         }
     });//même principe que CATEGORIE
     
     //TEST//
-    //console.log('Catégories sélectionnées:', categoriesSelectionnees); // Pour vérifier ce que renvoie la valeur cochée
-    //console.log('Temps sélectionnés:', tempsSelectionnes);// Pour vérifier ce que renvoie la valeur cochée
-    //console.log('Difficultés sélectionnées:', difficultesSelectionnees);// Pour vérifier ce que renvoie la valeur cochée
+    //console.log('Catégories sélectionnées:', categoriesSelectionnees); // Pour vérifier ce que renvoie la checkbox cochée
+    //console.log('Temps sélectionnés:', tempsSelectionnes);// Pour vérifier ce que renvoie la checkbox cochée
+    //console.log('Difficultés sélectionnées:', difficultesSelectionnees);// Pour vérifier ce que renvoie la checkbox cochée
     
     
     cards.forEach(function(card) {
