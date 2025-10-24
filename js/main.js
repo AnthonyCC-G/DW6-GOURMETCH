@@ -17,9 +17,6 @@ const themeToggle = document.querySelector("#theme-toggle");
 //======================
 
 //la fonction toggleDarkMode ajoute ou retire la classe dark-mode 
-// sur la balise body.
-//Si dark-mode n'existe pas => on l'ajoute
-//Si dark-mode existe déjà => elle la retire
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 
@@ -80,8 +77,7 @@ if (burgerMenu && nav) { // s'il existe un menu burger et une nav,
     burgerMenu.addEventListener('click', toggleMenu);
 }
 
-
-
+//écouteur click sur : 
 document.body.addEventListener('click', function(e) { // au click si l'utilisateur clique sur 
     if (document.body.classList.contains('menu-open')) { //si le clic est sur le menu ouvert
         if (!burgerMenu.contains(e.target) && !nav.contains(e.target)) { // si le clic est sur le menu buger et la nav
@@ -90,7 +86,7 @@ document.body.addEventListener('click', function(e) { // au click si l'utilisate
     }
 });
 
-// on ferme si le click est sur un lien de navigation
+// on ferme le menu si le click est sur :
 const navLinks = document.querySelectorAll('nav a'); 
 navLinks.forEach(function(link) { // pour chaque lien de navigation
     link.addEventListener('click', function() { // il ne faut pas oublier si on est sur tablette ou smartphone,
