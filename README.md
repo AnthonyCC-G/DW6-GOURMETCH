@@ -294,7 +294,7 @@ Merci à tous les contributeurs de ce projet éducatif.
 
 ## 📞 Contact
 
-Pour toute question ou suggestion, merci de ne pas nous contacter (il s'agit d'un exercice)
+Pour toute question ou suggestion, merci de ne pas nous contacter (il s'agit d'un exercice) ou contacter directement JEFF TOCHE
 
 ---
 
