@@ -308,8 +308,68 @@ if(difficulteCheckboxes.length > 0) {
 }
 
 
+//--- VALIDATION FORMULAIRE PAGE A PROPOS ----
+//============================================
+
+//Selection du formulaire
+const formContact = document.querySelector('#form-contact');
+//console.log('formulaire trouvée ?', formContact);
+
+function afficherNotification(message, type ='success') { // success = valeur type par défaut
+    const notification = document.createElement('div'); // créé la notification
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    //Partie créé par IA car pas encore à l'aise ici pour les durées pour l'instant.
+    setTimeout(() => { //si bien comprit ici, cela correspond à son apparation
+        notification.classList.add('show');
+    }, 100);
+    
+    
+    setTimeout(() => { // ici correspond à la partie configuration de la disparition de l'animation
+        notification.classList.remove('show');
+        
+        setTimeout(() => { //indique le délai avant disparation
+            notification.remove();
+        }, 300); // 300ms = durée de l'animation CSS
+    }, 3000); // 3000ms = 3 secondes
+}
 
 
+
+if (formContact) { // s'il y a un formContact sur la page
+    formContact.addEventListener('submit', (e) => { // écoute la soumission du formulaire + utilisation fonction fléchée à la place de '...,function(e) {}'
+        e.preventDefault(); //empêche le comportement par défaut
+
+
+        //récupération des valeurs saisies
+        const nom = document.querySelector('#nom').value.trim();
+        const email = document.querySelector('#email').value.trim();
+        const sujet = document.querySelector('#sujet').value.trim();
+        const message = document.querySelector('#message').value.trim();
+
+        //pour vérifier que tous est remplis
+        if (!nom || !email || !sujet || !message) {
+            afficherNotification('Tous les champs sont requis', 'error')
+            //console.log('Erreur : Tous les champs sont requis');
+            return;
+        }
+
+        //il faut vérifier que pour un email, il y a bien un '@' et pas de '/', ni de ^ etc ... regex simple ici
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // copier coller dans les sources (j'ai appris que les regex sotn très particulier et difficile pour les développeurs)
+        if (!emailRegex.test(email)) {
+            afficherNotification('Email invalide', 'error');
+            //console.log('Erreur : Email invalide');
+            return; 
+        }
+
+        afficherNotification('Message envoyé avec succès ! 🎉', 'success') // appel de la fonction
+
+        formContact.reset();
+    });
+}
 
 
 //---  PARTIE DIOGO   ----------------------
