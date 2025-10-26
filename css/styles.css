@@ -780,15 +780,6 @@ aside form button:active{
     background-color: #e74c3c;
 }
 
-@media screen and (max-width: 768px) {
-    .notification {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        max-width: calc(100% - 20px);
-        font-size: 14px;
-    }
-}
 
 
 /* -----------------------------------------------*/
@@ -1319,6 +1310,16 @@ footer .navigation ul {
     aside form button {
         width: 100%;
     }
+
+
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+        font-size: 14px;
+    }
+
 }
 
 
