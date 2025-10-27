@@ -6,24 +6,22 @@
 //---  PARTIE ANTHONY ----------------------
 //==========================================
 
-//== DARK MODE==
-//==============
+//== DARK MODE=============================
+//=========================================
 
-//je sélectionne le bouton avec l'ID et je le stocke dans une variable
+//Sélection du bouton avec ID et stockage dans une variable
 const themeToggle = document.querySelector("#theme-toggle");
 
 
 //==FUNCTION DARK MODE==
 //======================
 
-//la fonction toggleDarkMode ajoute ou retire la classe dark-mode 
+//Fonction toggleDarkMode : ajoute ou retire la classe 'dark-mode '
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 
-    //on sauvegarde dans le local storage le theme
+    //Sauvegarde dans le local storage : le theme
     //"contains ('dark-mode')", permet de vérifier si la classe est sur le body.
-    //si oui => darkMode = true
-    // si non => darkMode = false
     //sauvegarde cette valeur dans le local storage
     const darkMode = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', darkMode); 
@@ -36,13 +34,13 @@ function initialise () {
         document.body.classList.add('dark-mode');
     }
 
-    // Vérification
+    // if = Vérification
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleDarkMode);
     }
 }
 
-//appel de la fonction au chargement de la page
+//Appel de la fonction 
 initialise();
 
 //--- FIN DU DARK MODE --------------------
@@ -52,49 +50,47 @@ initialise();
 // --- MENU BURGER -------------------------
 //==========================================
 
-// Sélection des éléments (ici le menu burger et la nav)
+/* Menu Burger :
+    - Gestion de l'ouverture/fermeture du menu responsive
+    - Optimisation : vérification de l'existence des éléments avant d'ajouter les écouteurs d'évènements
+    pour éviter les erreurs sur les pages sans menu buger
+    - Version initiale : voir branche "JS-03-MENUBURGER---ANTHONY"
+
+    Source : 
+    - Stack Overflow + IA Claude pour optimisation (article vieux sur Stack Overflow et traduction approximative)
+*/
+
+//Sélection des éléments 
 const burgerMenu = document.querySelector('#burger-menu');
 const nav = document.querySelector('nav');
 
-if (burgerMenu && nav) { // s'il existe un menu burger et une nav, 
-    function toggleMenu() {
-        burgerMenu.classList.toggle('active'); // on active via le toggle la class .active (le css fait tout ici)
-        nav.classList.toggle('active');
-        document.body.classList.toggle('menu-open'); //menu-open = voir dans le CSS
-    }
-
-    burgerMenu.addEventListener('click', toggleMenu); // au clic
-    
-    // Ouvrir/fermer le menu
-    function toggleMenu() {
-        burgerMenu.classList.toggle('active');  //ajoute ou retire la classe "active" sur le bouton burger
-        nav.classList.toggle('active');// ajoute ou retire la classe "active" sur la nav
-    
-        document.body.classList.toggle('menu-open'); // ajoute ouretire l'ombrage sur la page
-    }
-
-    // Écouteur d'événement sur le bouton burger
-    burgerMenu.addEventListener('click', toggleMenu);
+function toggleMenu() {
+    burgerMenu.classList.toggle('active'); //active ou désactive le bouton burger
+    nav.classList.toggle('active'); //active ou désactive la nav
+    document.body.classList.toggle('menu-open'); // ajoute ou retire l'ombrage sur la page
 }
 
-//écouteur click sur : 
-document.body.addEventListener('click', function(e) { // au click si l'utilisateur clique sur 
-    if (document.body.classList.contains('menu-open')) { //si le clic est sur le menu ouvert
-        if (!burgerMenu.contains(e.target) && !nav.contains(e.target)) { // si le clic est sur le menu buger et la nav
-            toggleMenu(); // On ferme le menu
-        }
-    }
-});
+if (burgerMenu && nav) { // vérification défensive : il faut s'assurer que les éléments existent
+    burgerMenu.addEventListener('click', toggleMenu); //  ouvre/ferme le menu au click sur le bouton
 
-// on ferme le menu si le click est sur :
-const navLinks = document.querySelectorAll('nav a'); 
-navLinks.forEach(function(link) { // pour chaque lien de navigation
-    link.addEventListener('click', function() { // il ne faut pas oublier si on est sur tablette ou smartphone,
-        if (nav.classList.contains('active')) {
-            toggleMenu();
+    document.body.addEventListener('click', function(e) { 
+        if (document.body.classList.contains('menu-open')) {  
+            if(!burgerMenu.contains(e.target) && !nav.contains(e.target)){ // si le clic n'est ni sur le burger ni sur la nav
+                toggleMenu();
+            }
         }
     });
-});
+
+    // Ferme le menu au clic sur un lien (UX mobile/tablette)
+    const navLinks = document.querySelectorAll('nav a'); 
+    navLinks.forEach(function(link) { // pour chaque lien de navigation
+        link.addEventListener('click', function() { 
+            if (nav.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+}
 
 //--- FIN DU MENU BURGER -------------------
 //==========================================
@@ -164,7 +160,7 @@ if (faqQuestions.length > 0) {
 // --- SEARCH BAR ------------------------
 //========================================
 
-//on selectionne les éléments qui nous intéressent dans le form sur l'index.html
+//Sélection des éléments 
 const searchBar = document.querySelector('#valSearchBar'); //la valeur tapée dans l'input
 const btnRech = document.querySelector('#btn-recherche');//le bouton "rechercher"
 const cards = document.querySelectorAll('.card-content');//les cartes présentent sur la page
@@ -175,7 +171,7 @@ if (searchBar){
         const searchedText = e.target.value.toLowerCase(); //LowerCase permet de "convertir" en minuscule
         console.log('Texte saisie', searchedText); // pour voir le texte saisie dans la barre de recherche
 
-        if (searchedText === 'flem') { // la détection du code secret "flem"
+        if (searchedText === 'flem') { // la détection du code secret "flem" <== EASTER EGG
             afficherCarteSecrete(); //on affichera la carte secrète
             return; 
         }        
@@ -238,63 +234,63 @@ e.preventDefault(); //empêche la fonctionnalité par défaut du bouton submit
 //--- LES FILTRES DE LA ZONE DE RECHERCHE ----
 //============================================
 
-const categorieCheckboxes = document.querySelectorAll('input[name="categorie[]"]'); //cible tous les selecteurs CSS qui ont un attribut name = à "catégorie"
-const tempsCheckboxes = document.querySelectorAll('input[name="temps[]"]'); // cible tous les selecteurs css qui ont un attribut name = à "temps"
-const difficulteCheckboxes = document.querySelectorAll('input[name="difficulte[]"]'); // cible tous les selecteurs css qui ont un attribut name = à "temps"
+/* FILTRES :
+    - Utilisation de deux "Fonction utilitaire" (factoriser une fonction pour n'avoir à modifier qu'à un seul endroit)
+    - utilisation d'une cndition ternaire (en fin de fonction)
+    - Version initiale : voir branche "JS-02-SEARCH-BAR---ANTHONY"
+    Source : 
+    - Stack Overflow + MDN + IA Claude pour optimisation (traduction parfois pas correcte sur StackOverflow/Google traduction + MDN pour "filter" et "map")
+*/
 
-// APPLIQUE FILTRE
+//--- LES FILTRES DE LA ZONE DE RECHERCHE ----
+//============================================
+
+
+//Sélection des éléments
+const categorieCheckboxes = document.querySelectorAll('input[name="categorie[]"]');
+const tempsCheckboxes = document.querySelectorAll('input[name="temps[]"]');
+const difficulteCheckboxes = document.querySelectorAll('input[name="difficulte[]"]');
+
+// Fonction utilitaire 1 = il faut récupérer les valeurs de toutes les checkboxes cochées
+function getValeursCheckboxes(checkboxes) { 
+    return Array.from(checkboxes) // les checkboxes ne sont pas sous format tableau, 'Array.from()' permet de convertir la valeur en 'vrai tableau' pour JS
+        .filter(checkbox => checkbox.checked) // '.filter()' parcourt chaque checkbox et garde seulement celles qui sont cochées / cela créé un nouveau tableau avec QUE les checkboxes cochées
+        .map(checkbox => checkbox.value);  // '.map()' transforme chaque élément du tableau / on veut la valeur de chaque élément du tableau après 'filter' 
+}
+
+// Fonction utilitaire 2 = il faut ajouter des écouteurs sur tout le groupe de checkboxes
+function ajouterEcouteursCheckboxes(checkboxes) {
+    if (checkboxes.length > 0) { // on vérifie qu'il y en a AU MOINS UNE valeur dans le tableau
+        checkboxes.forEach(function(checkbox) { // pour chaque checkbox
+            checkbox.addEventListener('change', appliquerFiltres); // écouteur 'change' dès lors que l'état 'change' ça déclenche la fonction 'appliquerFiltres'
+        });
+    }
+}
+
+// APPLIQUE LES FILTRES
 function appliquerFiltres() {
-    // d'abord, je créé des variables qui renvoie un tableau vide (utile pour facilité la suite)
-    const categoriesSelectionnees = []; //categories
-    const tempsSelectionnes = [];// temps
-    const difficultesSelectionnees = []; // difficulte
+    //Sélection des éléments
+    const categoriesSelectionnees = getValeursCheckboxes(categorieCheckboxes);
+    const tempsSelectionnes = getValeursCheckboxes(tempsCheckboxes);
+    const difficultesSelectionnees = getValeursCheckboxes(difficulteCheckboxes);
     
-    // checkboxes CATEGORIES
-    categorieCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) { // le "if" c'est pour vérifier que l'on a bien des checkboxes sur la page (car toutes les pages ne comportent pas des checkboxs)
-            categoriesSelectionnees.push(checkbox.value);
-        }
-    });// si la checkboxe catégories est cochée alors la propriétée ".checked" rennvoie "true" sinon "false"
-    //PUIS, si c'est "true" ajoute la valeur correspondante dans mon tableau vide ("categoriesSelectionnees" définit plus haut)
-    
-    // checkboxes TEMPS
-    tempsCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) { // if = même principe que la ligne 229
-            tempsSelectionnes.push(checkbox.value);
-        }
-    });//même principe que CATEGORIE
-    
-    // checkboxes DIFFICULTE
-    difficulteCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) { // if = même principe que la ligne 229
-            difficultesSelectionnees.push(checkbox.value);
-        }
-    });//même principe que CATEGORIE
-    
-    //TEST//
-    //console.log('Catégories sélectionnées:', categoriesSelectionnees); // Pour vérifier ce que renvoie la checkbox cochée
-    //console.log('Temps sélectionnés:', tempsSelectionnes);// Pour vérifier ce que renvoie la checkbox cochée
-    //console.log('Difficultés sélectionnées:', difficultesSelectionnees);// Pour vérifier ce que renvoie la checkbox cochée
-    
-    
-    cards.forEach(function(card) {
-        let afficherCarte = true; // pas de const car la valeur peut changer + on affiche d'office la carte dans un premier temps
+    // Filtrage de cartes
+    cards.forEach(function(card) { // pour chaque carte
+        let afficherCarte = true; // il faut l'initialiser par défaut (ici ce la veut dire qu'on affiche les cartes par défaut)
         
-        // FILTRE CATÉGORIE 
-        if (categoriesSelectionnees.length > 0) { //S'il y a AU moins une valeur dans le tableau
-            const categorieCard = card.dataset.categorie; //je créé une const pour manipuler les dataset de "catégorie" en HTML
-             
-            if (!categoriesSelectionnees.includes(categorieCard)) { // si la catégorie n'est pas dans les catégories sélectionnées alors
-                afficherCarte = false; // on affiche PAS la carte
+        // FILTRE CATÉGORIE
+        if (categoriesSelectionnees.length > 0) { // s'il y en a AU MOINS UNE catégorie qui est cochée
+            const categorieCard = card.dataset.categorie; // il faut récupérer la catégorie de cette carte
+            if (!categoriesSelectionnees.includes(categorieCard)) { // on vérifie si la catégorie de la carte est DANS la liste des catégories cochées (le '!' est pour la négation)
+                afficherCarte = false; // si la carte ne correspond pas aux filtres, on ne l'affiche pas
             }
         }
         
-        // FILTRE TEMPS 
-        if (tempsSelectionnes.length > 0 && afficherCarte) { // si au moins un "temps" est sélectionné
-            // et que la variable afficherCarte plus haut est = à TRUE alors je vérifie la donnée "temps"
-            const tempsCard = parseInt(card.dataset.temps); // je récupère le temps de la carte et je le convertis en nomvbre entier
+        // FILTRE TEMPS = même fonctionnement que FILTRE CATEGORIE à l'exception qu'ici on vérifie 2données dont une qui sera converti de string en nombre (exemple : '25' => 25)
+        if (tempsSelectionnes.length > 0 && afficherCarte) {
+            const tempsCard = parseInt(card.dataset.temps);
             
-            const tempsCorrespond = tempsSelectionnes.some(function(temps) { // je vérifie si le temps sélectionné correspond AU MOINS à UN des temps
+            const tempsCorrespond = tempsSelectionnes.some(function(temps) {
                 if (temps === 'rapide' && tempsCard < 30) return true;
                 if (temps === 'moyen' && tempsCard >= 30 && tempsCard <= 60) return true;
                 if (temps === 'long' && tempsCard > 60) return true;
@@ -302,47 +298,34 @@ function appliquerFiltres() {
             });
             
             if (!tempsCorrespond) {
-                afficherCarte = false; // si ça ne correspond pas, alors on affiche pas la carte
+                afficherCarte = false; // si la carte ne correspond pas aux DEUX conditions alors on ne l'affiche pas
             }
         }
         
-        // FILTRE DIFFICULTÉ 
+        // FILTRE DIFFICULTÉ = voir commentaire du FILTRE CATEGORIE car même logique
         if (difficultesSelectionnees.length > 0 && afficherCarte) {
             const difficulteCard = card.dataset.difficulte;
-            
-
             if (!difficultesSelectionnees.includes(difficulteCard)) {
                 afficherCarte = false;
             }
-        }// même logique que catégorie
-        
-
-        if (afficherCarte) { // après avoir vérifié si la carte a passé les filtres,
-            card.style.display = 'block'; // elle doit être affichée
-        } else { // sinon
-            card.style.display = 'none'; // on la rend non visible
         }
+        
+        // Affichage ou masquage de la carte
+        card.style.display = afficherCarte ? 'block' : 'none'; // ici j'avoue que j'ai eu du mal à bien comprendre.
+        //si bien comprit : 'opérateur ternaire' (= à une 'condition' mais en raccourcie) ici la ligne 316 indique : si c'est vrai on affiche si non, on la masque
     });
 }
 
-// Ecouteur d'évènement sur tous les checkboxes
-if (categorieCheckboxes.length > 0){
-    categorieCheckboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', appliquerFiltres); // change = evenement qui se déclenche quand on coche ou décoche une checkbox
-    });
-}
+// Appelle des fonctions
+ajouterEcouteursCheckboxes(categorieCheckboxes);
+ajouterEcouteursCheckboxes(tempsCheckboxes);
+ajouterEcouteursCheckboxes(difficulteCheckboxes);
 
-if(tempsCheckboxes.length > 0) {
-    tempsCheckboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', appliquerFiltres);
-    });
-}
 
-if(difficulteCheckboxes.length > 0) {
-    difficulteCheckboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', appliquerFiltres);
-    });
-}
+//--- FIN DES FILTRES --------------------------
+//============================================
+
+
 
 
 //--- VALIDATION FORMULAIRE PAGE A PROPOS ----
