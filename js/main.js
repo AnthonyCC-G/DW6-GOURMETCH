@@ -83,8 +83,8 @@ if (burgerMenu && nav) { // vérification défensive : il faut s'assurer que les
 
     // Ferme le menu au clic sur un lien (UX mobile/tablette)
     const navLinks = document.querySelectorAll('nav a'); 
-    navLinks.forEach(function(link) { // pour chaque lien de navigation
-        link.addEventListener('click', function() { 
+    navLinks.forEach(link => { // pour chaque lien de navigation + fonction fléchée
+        link.addEventListener('click', () => { // fonction fléchée
             if (nav.classList.contains('active')) {
                 toggleMenu();
             }
@@ -267,7 +267,7 @@ function ajouterEcouteursCheckboxes(checkboxes) {
     }
 }
 
-// APPLIQUE LES FILTRES
+// APPLIQUER LES FILTRES
 function appliquerFiltres() {
     //Sélection des éléments
     const categoriesSelectionnees = getValeursCheckboxes(categorieCheckboxes);
@@ -275,7 +275,7 @@ function appliquerFiltres() {
     const difficultesSelectionnees = getValeursCheckboxes(difficulteCheckboxes);
     
     // Filtrage de cartes
-    cards.forEach(function(card) { // pour chaque carte
+    cards.forEach(card => { // ajout de fonction fléchée
         let afficherCarte = true; // il faut l'initialiser par défaut (ici ce la veut dire qu'on affiche les cartes par défaut)
         
         // FILTRE CATÉGORIE
