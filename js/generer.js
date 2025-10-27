@@ -3,112 +3,126 @@
 // API: TheMealDB
 //===========================================
 
-
-
 /*Sur cette page est utilisé les concepts suivants : la boucle forEach, "template literale", 
-le concept des tableaux pour stocker des informations,push, les backticks, fetch, catch, finally, console.error, innerHTML, trim, 
+le concept des tableaux pour stocker des informations, push, les backticks, fetch, catch, finally, console.error, innerHTML, trim, 
 
+Optimisation : 
+    - 'catch' = changement d'une alerte à un message d'erreur dans la page. 'alert' bloque toute la page + ajout d'un bouton pour réessayer
+        Version initial sur la branche : JS-07-TP2-API-THEMEALDB---ANTHONY
+        Sources : "https://www.motscles.net/blog/ux-writing-les-meilleurs-messages-d-erreur" et divers vidéo Youtube (voir vidéo playlist 'UX Antho')
+    - 'map + join' = version moderne et optimisée pour générer le HTML des ingrédients
+        Version initiale sur la branche : JS-07-TP2-API-THEMEALDB---ANTHONY
 */
-const btnGenerer = document.querySelector('#btn-generer'); //selection du bouton
+
+const btnGenerer = document.querySelector('#btn-generer');
 const recetteContainer = document.querySelector('#recette-container');
 const loader = document.querySelector('#loader');
 
-//afin de faire patienter l'utilisateur = LOADER
 //==============================================
-function afficherLoader () {
-    if (loader) { // afin de vérifiier 
-        loader.style.display = 'flex'; //le loader devient visible
-    }
-}
-
-function cacherLoader () {
+// LOADER - Animation de chargement
+//==============================================
+function afficherLoader() {
     if (loader) {
-        loader.style.display = 'none'; // le loader disparait
+        loader.style.display = 'flex';
     }
 }
 
+function cacherLoader() {
+    if (loader) {
+        loader.style.display = 'none';
+    }
+}
 
-
-async function genererRecette () {
-
+//==============================================
+// GÉNÉRATION DE RECETTE ALÉATOIRE
+//==============================================
+async function genererRecette() {
     afficherLoader();
 
     try {
-        console.log('appel de l\'API');
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-        // la ligne au dessus renvoie une réponse brut non convertit en JSON
-        if(!response.ok) { // si le statut de la réponse correspond à une erreur, on affiche Erreur HTTP / et le code de l'erreur
+        console.log('Appel de l\'API');
+        const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php'); // L'API
+        
+        if (!response.ok) {
             throw new Error(`Erreur HTTP / ${response.status}`);
         }
     
         const data = await response.json();
-        console.log('données reçues', data);
+        console.log('Données reçues', data);
 
         if (data.meals && data.meals.length > 0) {
-            const recette = data.meals[0]; // on ne veut que la première recette
+            const recette = data.meals[0];
             console.log('Recette', recette.strMeal);
-
             afficherRecette(recette);
-
         } else {
             console.error('Aucune recette trouvée');
         }
     
-    } catch (error) { // vu dans le QCM LMS - permet d'attraper toutes les erreurs (problème internet, api qui ne répond pas)
-        console.error ('Erreur lors de la récupération:', error);
-        alert('Impossible de charger une recette. Il n\'y a plus d\'huile pour les frites. (Vérifie ta connexion internet)');
-    
+    } catch (error) {
+        console.error('Erreur lors de la récupération:', error);
+        
+        // Message d'erreur dans le conteneur au lieu d'une alerte
+        recetteContainer.innerHTML = `
+            <div class="erreur-container">
+                <h2>Oups !</h2>
+                <p>Impossible de charger une recette.</p>
+                <p>Il n'y a plus d'huile pour les frites...</p>
+                <p class="erreur-detail">(Vérifie ta connexion internet)</p>
+                <button class="Bouton" onclick="location.reload()">Réessayer</button>
+            </div>
+        `;
     } finally {
         cacherLoader();
     }
 }
 
-
+// Écouteur sur le bouton
 if (btnGenerer) {
-    btnGenerer.addEventListener('click',genererRecette);
+    btnGenerer.addEventListener('click', genererRecette);
 }
 
+//==============================================
+// EXTRACTION DES INGRÉDIENTS
+//==============================================
+// L'API affiche toujours 20 ingrédients MAX mais certains sont vides
+// Cette fonction extrait uniquement les ingrédients présents
+function extraireIngredients(recette) {
+    const ingredients = [];
 
-
-//Fonction pour extraire les ingredients présents des ingredients vides.
-//L'API semble toujours afficher 20 ingredients MAX mais les 20 ne sont pas toujours remplies selon les recettes.
-//Cette fonction permet d'extraire les ingredients présents dans la liste dans l'API
-function extraireIngredients(recette) { // vu les recettes affiches toujours 20 ingrédients mais certains sont vides
-    const ingredients = []; // tableau pour stocker les ingrédients
-
-    for (let i= 1; i <= 20; i++) { // testes après plusieurs essaies, l'API présente toujours 20 ingredients MAX
-        const ingredient = recette[`strIngredient${i}`]; // strIngrédient1 ou strIngredient2 etc ...
-        const mesure = recette[`strMeasure${i}`]; // strMeasure1 etc ...
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = recette[`strIngredient${i}`];
+        const mesure = recette[`strMeasure${i}`];
         
         if (ingredient && ingredient.trim() !== '') {
             ingredients.push({
                 nom: ingredient, 
-                quantite: mesure || '' //si pas de mesure, on ne met rien
+                quantite: mesure || ''
             });
         }
     }
     
-    return ingredients; //retourne le tableau d'ingredients
+    return ingredients;
 }
 
-
-//fonction pour afficher la recette
+//==============================================
+// AFFICHAGE DE LA RECETTE
+//==============================================
 function afficherRecette(recette) {
     console.log('Affichage de la recette...');
 
-    const ingredients = extraireIngredients(recette);//on utilise la fonction plus haut pour ne garder que les infos utiles à afficher
+    const ingredients = extraireIngredients(recette);
 
-    let ingredientsHTML = ''; // il faut créer le HTML pour les ingrédients
-    ingredients.forEach(function(item) {
-        ingredientsHTML += `
-        <li class="quantites-ingredients-item">
-            <img src="assets/icons/icon-ingredients.png" class="logo-item" alt="icône ingrédient">
-            ${item.quantite} ${item.nom}
-        </li>
-        `;
-    });
+    // Version optimisée avec map + join
+    const ingredientsHTML = ingredients
+        .map(item => `
+            <li class="quantites-ingredients-item">
+                <img src="assets/icons/icon-ingredients.png" class="logo-item" alt="icône ingrédient">
+                ${item.quantite} ${item.nom}
+            </li>
+        `)
+        .join(''); // Transforme le tableau en string
 
-    //pour cette partie j'ai eu recours à l'IA car je m'en mêlais les pinceaux dans les données de l'API et leur disposition dans le HTML
+    // Construction du HTML complet de la recette
     const recetteHTML = `
         <article class="recette-content">
             <img src="${recette.strMealThumb}" 
