@@ -1387,3 +1387,198 @@ footer .navigation ul {
     
 } 
 
+/* -----------------------------------------------*/
+/* PAGE GENERER */ 
+
+
+
+/* Loader (animation de chargement) */
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(var(--color-orange-rgb), 0.2);
+    border-top: 5px solid var(--color-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader p {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* Contenu de la recette */
+.recette-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.recette-content .photo-pastel {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--radius-border);
+}
+
+.recette-content .title-pastel {
+    text-align: center;
+    color: var(--color-orange);
+    margin: 20px 0;
+}
+
+.recette-content .typologie {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.recette-content .etapes,
+.recette-content .quantites {
+    background-color: rgba(var(--color-orange-rgb), 0.05);
+    padding: 20px;
+    border-radius: var(--radius-border);
+}
+
+.recette-content h3 {
+    color: var(--color-orange);
+    margin-bottom: 15px;
+}
+
+/* Style des listes d'ingrédients */
+.quantites-ingredients {
+    list-style: none;
+    padding: 0;
+}
+
+.quantites-ingredients-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.quantites-ingredients-item:last-child {
+    border-bottom: none;
+}
+
+.logo-item {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Animation d'apparition de la recette */
+.recette-content {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark mode pour la recette générée */
+body.dark-mode .recette-content .etapes,
+body.dark-mode .recette-content .quantites {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode .quantites-ingredients-item {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Styles pour la carte secrète sur index.html */
+.carte-secrete {
+    animation: apparition 0.5s ease;
+    width: 25%; /* Au lieu de 30% comme les autres cartes */
+    max-width: 300px; /* Taille maximale */
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* RESPONSIVE - TABLETTE */
+@media screen and (max-width: 1024px) {
+    .recette-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .recette-image {
+        height: 300px;
+    }
+
+    .carte-secrete {
+        width: 30%; /* En tablette, même taille que les autres */
+    }
+}
+
+/* RESPONSIVE - MOBILE */
+@media screen and (max-width: 768px) {
+    .generer-hero h2 {
+        font-size: 24px;
+    }
+    
+    .generer-hero p {
+        font-size: 16px;
+    }
+    
+    .recette-image {
+        height: 250px;
+    }
+    
+    .recette-content {
+        padding: 20px;
+    }
+    
+    .recette-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .recette-actions .Bouton {
+        max-width: 100%;
+    }
+
+    .carte-secrete {
+        width: 90%; /* En mobile, prend presque toute la largeur */
+        max-width: none;
+    }
+}

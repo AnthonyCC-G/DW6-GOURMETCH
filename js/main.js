@@ -175,6 +175,11 @@ if (searchBar){
         const searchedText = e.target.value.toLowerCase(); //LowerCase permet de "convertir" en minuscule
         console.log('Texte saisie', searchedText); // pour voir le texte saisie dans la barre de recherche
 
+        if (searchedText === 'flem') { // la détection du code secret "flem"
+            afficherCarteSecrete(); //on affichera la carte secrète
+            return; 
+        }        
+
         //parcourir toutes les "cards"
         cards.forEach(card => { //pour chacune des "cards" présentent
             const recipeTitle = card.querySelector('h2').textContent.toLowerCase(); 
@@ -189,6 +194,38 @@ if (searchBar){
     })
 }
 
+// --- CARTE SECRETE "FLEM" ----------
+//====================================
+function afficherCarteSecrete() {
+    cards.forEach(card => { //dans un premier temps,
+        card.style.display = 'none'; // on cache toutes les cartes normales
+    });
+
+    let carteSecrete = document.querySelector('.carte-secrete'); //déclaration de la carte secrete
+
+    if (!carteSecrete) { // si la carte secrete n'existe pas, il faut la créer
+        const mainCards = document.querySelector('.cards');
+        carteSecrete = document.createElement('article'); //création de la carte secrète
+        carteSecrete.className = 'card-content carte-secrete'; //pour de la cohérence, on reprend le même styles de card-content
+        
+        carteSecrete.innerHTML = `
+        <img src = "assets/images/carte-flem.png" alt="J'ai la flemme de cuisiner" class="card-image" onerror="this.src='assets/images/images/logoGourmetech.png'">
+        <h2 class="card-title-secret">Recette Aléatoire</h2>
+        <div class="typologie">
+            <p class="type"><span>Surprise</span></p>
+            <p class="temps"><span> ? min</span></p>
+            <p class="dificulte"><span>Mystère</span></p>
+        </div>
+        <a href="generer.html"><button class="Bouton">Générer une recette !</button></a>
+        `; // onerror = aussi utiliser dans le langage VBA que je connais, ici sert à rattraper en cas d'erreur, ici si error, on affiche le logo GourmeTech
+
+        mainCards.appendChild(carteSecrete); // le place dans le conteneur à cards
+
+    } else { // sinon
+        carteSecrete.style.display ='block'; //si la carte existe déjà, permet de la rendre visible
+    }
+
+}
 
 //il faut empêcher le rechargement de la page lorsque l'on appuie sur le bouton "Rechercher"
 const formR = document.querySelector('.search-filter form');
