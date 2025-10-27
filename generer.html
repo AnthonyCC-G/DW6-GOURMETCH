@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Recettes Aléatoires | GourmeTech</title>
+    <meta name="description" content="J'ai la flemme ! Laisse GourmeTech choisir une recette pour toi.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gourmetech.fr/generer">
+    <meta property="og:title" content="GourmeTech - Générateur de Recettes">
+    <meta property="og:description" content="Découvre des recettes aléatoires du monde entier !">
+    <meta property="og:image" content="https://www.gourmetech.fr/assets/images/Og-GourmeTech.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GourmeTech - Générateur de recettes">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="GourmeTech">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gourmetech.fr/generer">
+    <meta name="twitter:title" content="GourmeTech - Générateur de Recettes">
+    <meta name="twitter:description" content="Découvre des recettes aléatoires du monde entier !">
+    <meta name="twitter:image" content="https://www.gourmetech.fr/assets/images/Og-GourmeTech.png">
+    <meta name="theme-color" content="#fa7921">
+    <link rel="canonical" href="https://www.gourmetech.fr/generer">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-Gourmetech.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/generer.js"></script>
+</head>
+<body class="parent">
+    
+    <header><!-- comprend un LOGO + h1 et une nav + bouton darkmode-->
+        <a href="index.html" class="logo">
+            <img src="assets/images/logoGourmetech.png" alt="Logo du site - G">
+            <h1>GourmeTech</h1>
+        </a>
+        <button id="burger-menu" aria-label="Menu de navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="recette.html">Ajouter une recette</a></li>
+                <li><a href="favoris.html">Mes favoris</a></li>
+                <li><a href="a-propos.html">A propos</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle"><!--Pour le darkmode-->
+            <svg width="32" height="32" viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="12" fill="currentColor"/>
+                <circle cx="24" cy="16" r="9" fill="var(--header-bg)"/>
+            </svg>
+        </button>
+    </header>
+
+    <main class="generer-main">
+        <section class="generer-hero">
+            <h2>Générateur de Recettes</h2>
+            <p>Pas d'inspiration ? Laisse le hasard décider pour toi !</p>
+            <button id="btn-generer" class="Bouton btn-generer">
+                Générer une recette aléatoire
+            </button>
+        </section>
+
+        <!-- Zone d'affichage de la recette -->
+        <section id="recette-container" class="recette-container">
+            <!--ici = recette affichée dynamiquement -->
+        </section>
+
+        <!-- Loader (animation de chargement) -->
+        <div id="loader" class="loader" style="display: none;">
+            <div class="spinner"></div>
+            <p>Recherche d'une recette délicieuse...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <nav class="navigation">
+                <h2 class="title-footer">Navigation</h2>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="recette.html">Ajouter une recette</a></li>
+                    <li><a href="favoris.html">Mes favoris</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="propos">
+                <h2>À propos de GourmeTech</h2>
+                <p>GourmeTech est une plateforme de recettes culinaires interactive développée dans le cadre d'un projet pédagogique.</p>
+            </div>
+        </div>
+        <hr class="trait">
+        <p class="droits"> &copy; 2025 GourmeTech - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
