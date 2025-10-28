@@ -321,10 +321,8 @@ ajouterEcouteursCheckboxes(categorieCheckboxes);
 ajouterEcouteursCheckboxes(tempsCheckboxes);
 ajouterEcouteursCheckboxes(difficulteCheckboxes);
 
-
 //--- FIN DES FILTRES --------------------------
 //============================================
-
 
 
 
@@ -351,12 +349,11 @@ function afficherNotification(message, type ='success') { // success = valeur ty
     setTimeout(() => { // ici correspond à la partie configuration de la disparition de l'animation
         notification.classList.remove('show');
         
-        setTimeout(() => { //indique le délai avant disparation
+        setTimeout(() => { //pour indiquer le délai avant disparation
             notification.remove();
         }, 300); // 300ms = durée de l'animation CSS
     }, 3000); // 3000ms = 3 secondes
 }
-
 
 
 if (formContact) { // s'il y a un formContact sur la page
@@ -385,7 +382,7 @@ if (formContact) { // s'il y a un formContact sur la page
             return; 
         }
 
-        afficherNotification('Message envoyé avec succès ! 🎉', 'success') // appel de la fonction
+        afficherNotification('Message envoyé avec succès !', 'success') // appel de la fonction
 
         formContact.reset();
     });

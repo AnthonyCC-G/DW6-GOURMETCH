@@ -97,6 +97,12 @@ GourmeTech est une application web moderne qui offre une expérience complète p
    - Installer l'extension "Live Server" dans VS Code
    - Clic droit sur `index.html` → "Open with Live Server"
 
+
+- ou
+
+Cliquer sur le lien suivant : https://anthonycc-g.github.io/DW6-GOURMETCH pour accéder au site directement
+Déploiement : Github free 
+
 ---
 
 ## 📁 Structure du projet
