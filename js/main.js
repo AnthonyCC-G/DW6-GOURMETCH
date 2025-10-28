@@ -13,8 +13,8 @@
 const themeToggle = document.querySelector("#theme-toggle");
 
 
-//==FUNCTION DARK MODE==
-//======================
+//--FUNCTION DARK MODE --
+//========================
 
 //Fonction toggleDarkMode : ajoute ou retire la classe 'dark-mode '
 function toggleDarkMode() {
