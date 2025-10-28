@@ -1,6 +1,7 @@
 //===========================================
 // GOURMETECH - Générateur de Recettes
 // API: TheMealDB
+// Auteur : Anthony
 //===========================================
 
 /*Sur cette page est utilisé les concepts suivants : la boucle forEach, "template literale", 
@@ -18,8 +19,8 @@ const btnGenerer = document.querySelector('#btn-generer');
 const recetteContainer = document.querySelector('#recette-container');
 const loader = document.querySelector('#loader');
 
-//==============================================
-// LOADER - Animation de chargement
+
+//--- LOADER - Animation de chargement --------
 //==============================================
 function afficherLoader() {
     if (loader) {
@@ -33,8 +34,8 @@ function cacherLoader() {
     }
 }
 
-//==============================================
-// GÉNÉRATION DE RECETTE ALÉATOIRE
+
+//-- GÉNÉRATION DE RECETTE ALÉATOIRE ----------
 //==============================================
 async function genererRecette() {
     afficherLoader();
@@ -81,8 +82,8 @@ if (btnGenerer) {
     btnGenerer.addEventListener('click', genererRecette);
 }
 
-//==============================================
-// EXTRACTION DES INGRÉDIENTS
+
+//-- EXTRACTION DES INGRÉDIENTS ----------------
 //==============================================
 // L'API affiche toujours 20 ingrédients MAX mais certains sont vides
 // Cette fonction extrait uniquement les ingrédients présents
@@ -104,8 +105,8 @@ function extraireIngredients(recette) {
     return ingredients;
 }
 
-//==============================================
-// AFFICHAGE DE LA RECETTE
+
+//-- AFFICHAGE DE LA RECETTE -------------------
 //==============================================
 function afficherRecette(recette) {
     console.log('Affichage de la recette...');
