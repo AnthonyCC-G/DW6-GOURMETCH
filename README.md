@@ -1,209 +1,412 @@
-🍽️ GourmeTech
-Version HTML5 CSS3 JavaScript
+# 🍽️ GourmeTech
 
-GourmeTech est une plateforme de recettes culinaires interactive développée en HTML, CSS et JavaScript vanilla. Le projet permet de découvrir, rechercher et sauvegarder des recettes, avec une intégration de l'API TheMealDB pour générer des recettes aléatoires.
+**Plateforme de recettes culinaires interactive**
 
-📋 Table des matières
-Aperçu du projet
-Fonctionnalités
-Technologies utilisées
-Installation
-Structure du projet
-Utilisation
-API TheMealDB
-Responsive Design
-Équipe
-Licence
-🎯 Aperçu du projet
-GourmeTech est une application web moderne qui offre une expérience complète pour les passionnés de cuisine :
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-Explorer des recettes avec un système de recherche et filtres avancés
-Découvrir de nouvelles recettes grâce à l'intégration de l'API TheMealDB
-Sauvegarder vos recettes favorites (WIP)
-Personnaliser votre expérience avec un mode sombre
-Naviguer facilement sur tous les appareils (desktop, tablette, mobile)
-✨ Fonctionnalités
-Fonctionnalités principales (TP1)
-✅ Recherche de recettes : Barre de recherche dynamique avec filtrage en temps réel
-✅ Filtres multiples : Par catégorie, temps de préparation et difficulté 
-✅ Gestion de favoris
-✅ Mode sombre : Thème clair/sombre avec sauvegarde de la préférence
-✅ Navigation responsive : Menu burger pour mobile et tablette
-✅ Page À propos : Avec système d'onglets et FAQ accordéon
-✅ Formulaire de contact : Validation des champs avec notifications
-✅ Accessibilité : Respect des normes de base
+---
 
-Nouvelle fonctionnalité (TP2)
-✨ Générateur de recettes aléatoires :
+## 📖 À propos du projet
 
-Génération de recettes via l'API TheMealDB
-Affichage dynamique des informations (image, nom, origine, ingrédients, instructions)
-Gestion des erreurs réseau
-Interface cohérente avec le reste du site
-🛠️ Technologies utilisées
-HTML5 : Structure sémantique et accessible
-CSS3 : Flexbox, Grid, variables CSS, animations
-JavaScript (ES6+) : Vanilla JS, async/await, fetch API
-LocalStorage : Persistance des données côté client
-API REST : TheMealDB (https://www.themealdb.com/api.php)
-Contraintes respectées :
+GourmeTech est une application web moderne et intuitive développée en **HTML5, CSS3 et JavaScript vanilla**. Cette plateforme permet aux passionnés de cuisine de découvrir, rechercher, générer et sauvegarder des recettes du monde entier.
 
-Aucun framework ni bibliothèque externe
-Compatible avec Chrome, Firefox, Safari, Edge
-Code valide selon les standards W3C
-📦 Installation
-Prérequis
-Un navigateur web moderne (Chrome, Firefox, Safari ou Edge)
-Un éditeur de code (VS Code recommandé)
-Git pour cloner le projet
-Étapes d'installation
-Cloner le dépôt
+Le projet a été réalisé dans le cadre d'une formation en développement web (septembre 2025 - février 2026), et démontre l'application de concepts fondamentaux du développement front-end dans un contexte réaliste.
 
-git clone https://github.com/votre-username/GourmeTech.git
-cd GourmeTech
-Ouvrir le projet
+### 🎯 Objectifs pédagogiques
 
-Ouvrir le dossier dans votre éditeur de code
-Lancer index.html avec un serveur local ou directement dans le navigateur
-Utilisation avec Live Server (recommandé)
+- Structurer une application web multi-pages avec HTML sémantique
+- Créer des interfaces responsive adaptées à tous les appareils
+- Manipuler le DOM de manière dynamique avec JavaScript
+- Intégrer une API REST externe (TheMealDB)
+- Gérer la persistance des données côté client avec localStorage
+- Implémenter des animations et interactions fluides
+- Respecter les normes d'accessibilité web (WCAG)
 
-Installer l'extension "Live Server" dans VS Code
-Clic droit sur index.html → "Open with Live Server"
-ou
-Cliquer sur le lien suivant : https://anthonycc-g.github.io/DW6-GOURMETCH pour accéder au site directement Déploiement : Github free
+---
 
-📁 Structure du projet
-GourmeTech/
+## ✨ Fonctionnalités
+
+### 🔍 Fonctionnalités principales (TP1)
+
+- **Recherche dynamique** : Barre de recherche avec filtrage en temps réel des recettes
+- **Filtres avancés** : Par catégorie, temps de préparation et niveau de difficulté
+- **Système de favoris** : Sauvegarde de recettes favorites avec localStorage
+- **Mode sombre** : Thème clair/sombre avec persistance de la préférence utilisateur
+- **Navigation responsive** : Menu burger adaptatif pour mobile et tablette
+- **Page À propos** : Système d'onglets interactif et FAQ avec accordéon
+- **Formulaire de contact** : Validation complète avec notifications visuelles
+- **Accessibilité** : Respect des normes WCAG de base
+
+### 🎲 Générateur de recettes (TP2)
+
+- **Intégration API TheMealDB** : Génération de recettes aléatoires du monde entier
+- **Affichage dynamique** : Extraction et affichage automatique des données
+  - Image haute résolution
+  - Nom du plat
+  - Catégorie et origine
+  - Liste complète des ingrédients avec mesures
+  - Instructions détaillées de préparation
+- **Gestion des erreurs** : Affichage de messages clairs en cas de problème réseau
+- **Interface cohérente** : Design aligné avec le reste de l'application
+
+---
+
+## 🛠️ Technologies utilisées
+
+### Front-end
+- **HTML5** : Structure sémantique et accessible
+- **CSS3** : Flexbox, Grid, Variables CSS, Animations
+- **JavaScript (ES6+)** : Vanilla JS, Async/Await, Fetch API, DOM Manipulation
+
+### Stockage & API
+- **localStorage** : Persistance des favoris et préférences utilisateur
+- **TheMealDB API** : Base de données de recettes mondiale ([Documentation](https://www.themealdb.com/api.php))
+
+### Outils de développement
+- **Git** : Gestion de version avec workflow par branches
+- **VS Code** : Éditeur de code avec extensions (HTML CSS Support)
+
+### Contraintes respectées
+✅ Aucun framework ou bibliothèque externe  
+✅ Code valide W3C  
+✅ Compatible Chrome, Firefox, Safari, Edge  
+✅ Responsive design avec 3 breakpoints  
+
+---
+
+## 📦 Installation et lancement
+
+### Prérequis
+
+- Un navigateur web moderne (Chrome, Firefox, Safari ou Edge)
+- Un éditeur de code (VS Code recommandé)
+- Git (pour cloner le projet)
+
+### Étapes d'installation
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/votre-username/GourmeTech.git
+   cd GourmeTech
+   ```
+
+   ou 
+
+   cliquer sur ce lien : https://anthonycc-g.github.io/DW6-GOURMETCH/
+
+
+2. **Ouvrir le projet**
+   - Ouvrir le dossier dans votre éditeur de code
+   - Aucune installation de dépendances n'est nécessaire (projet vanilla)
+
+3. **Lancer l'application**
+   - Ouvrir `index.html` avec votre navigateur
+   - Ou utiliser l'extension "Live Server" dans VS Code pour un rechargement automatique
+
+### Accès direct aux pages
+
+- **Page d'accueil** : `index.html`
+- **Générateur de recettes** : `generer.html`
+- **Mes favoris** : `favoris.html`
+- **À propos** : `a-propos.html`
+- **Détail d'une recette** : `recette.html`
+
+---
+
+## 📂 Structure du projet
+
+```
+gourmeTech/
 │
-├── index.html              # Page d'accueil avec recherche et liste de recettes
-├── recette.html            # Page détail d'une recette
-├── favoris.html            # Page des recettes favorites
-├── a-propos.html           # Page à propos avec onglets et FAQ
+├── index.html              # Page d'accueil avec liste des recettes
 ├── generer.html            # Générateur de recettes aléatoires (API)
+├── recette.html            # Template pour l'affichage d'une recette
+├── favoris.html            # Page des recettes favorites
+├── a-propos.html           # Page à propos du site
 │
-├── css/
-│   └── styles.css          # Styles principaux (thème, responsive, animations)
+├── main.js                 # Logique principale (recherche, filtres, favoris, thème)
+├── generer.js              # Gestion du générateur et de l'API TheMealDB
+├── styles.css              # Styles globaux et responsive
 │
-├── js/
-│   ├── main.js             # Script principal (recherche, filtres, favoris)
-│   └── generer.js          # Script dédié à l'API TheMealDB
-│
-├── assets/
-│   ├── images/             # Images des recettes et logo
-│   └── icons/              # Icônes (favoris, menu, etc.)
-│
-└── README.md               # Documentation du projet
-🚀 Utilisation
-Page d'accueil (index.html)
-Rechercher une recette :
+├── TP_1_*.pdf             # Consignes du TP1 (fonctionnalités de base)
+└── TP_2_*.pdf             # Consignes du TP2 (intégration API)
+```
 
-Taper le nom d'une recette dans la barre de recherche
-Les résultats se filtrent automatiquement
-Utiliser les filtres :
+---
 
-Sélectionner une catégorie (Entrée, Plat, Dessert)
-Choisir un temps de préparation
-Définir un niveau de difficulté
-Les filtres se cumulent pour affiner les résultats
-Ajouter aux favoris :
+## 🎨 Guide d'utilisation
 
-Cliquer sur l'icône cœur sur une carte de recette
-La recette est sauvegardée dans le localStorage
-Activer le mode sombre :
+### Navigation générale
 
-Cliquer sur l'icône lune/soleil en haut à droite
-Votre préférence est automatiquement sauvegardée
-Page "Générer une recette" (generer.html)
-Intro : pour y accéder : taper "flem" dans la barre de recherche pour voir apparaitre la carte "secrète"
+1. **Menu principal** : Accédez aux différentes pages via la navigation en haut
+2. **Mode sombre** : Cliquez sur l'icône 🌙 pour basculer entre les thèmes
+3. **Menu mobile** : Sur petit écran, utilisez l'icône hamburger (☰) pour ouvrir le menu
 
-Générer une recette aléatoire :
+### Recherche et filtres
 
-Cliquer sur le bouton "Générer une recette"
-Une recette aléatoire est récupérée depuis l'API TheMealDB
-Les informations s'affichent dynamiquement (image, nom, origine, ingrédients, instructions)
-Générer une nouvelle recette :
+1. **Barre de recherche** : Tapez le nom d'une recette pour filtrer en temps réel
+2. **Filtres** :
+   - Catégorie : Choisissez entrée, plat principal ou dessert
+   - Temps : Sélectionnez un temps de préparation maximum
+   - Difficulté : Filtrez par niveau (facile, moyen, difficile)
+3. **Réinitialiser** : Cliquez sur "Réinitialiser" pour effacer tous les filtres
 
-Cliquer à nouveau sur "Générer une recette"
-Une nouvelle recette remplace la précédente
-Page À propos (a-propos.html)
-Navigation par onglets :
+### Générateur de recettes
 
-Cliquer sur "Présentation" pour découvrir l'équipe
-Cliquer sur "F.A.Q." pour les questions fréquentes
-FAQ avec accordéon :
+1. Accédez à la page "Générer une recette"
+2. Cliquez sur le bouton "Générer une recette aléatoire"
+3. Patientez pendant le chargement (loader animé)
+4. Découvrez une nouvelle recette avec tous ses détails
+5. Cliquez à nouveau pour générer une autre recette
 
-Cliquer sur une question pour afficher la réponse
-Cliquer à nouveau pour la fermer
-Formulaire de contact :
+### Système de favoris
 
-Remplir tous les champs obligatoires
-Une notification apparaît en cas d'erreur ou de succès
-🌐 API TheMealDB
-Présentation de l'API
-L'API TheMealDB est une API publique et gratuite qui fournit des informations sur des milliers de recettes du monde entier.
+1. Cliquez sur l'icône ❤️ sur une carte de recette
+2. La recette est automatiquement sauvegardée
+3. Retrouvez toutes vos recettes favorites dans la page "Mes favoris"
+4. Retirez une recette des favoris en cliquant à nouveau sur ❤️
 
-Fonctionnalités implémentées
-Récupération d'une recette aléatoire avec fetch()
-Extraction dynamique des ingrédients (de strIngredient1 à strIngredient20)
-Affichage dynamique dans le DOM
-Gestion des erreurs réseau avec try/catch
-Loader animé pendant le chargement
-📱 Responsive Design
-Le site s'adapte à toutes les tailles d'écran grâce à trois breakpoints principaux :
+### Page À propos
 
-🖥️ Desktop (> 1024px)
-Navigation horizontale complète
-Grille de 3 cartes par ligne
-Filtres sur une ligne
-Layout à deux colonnes sur la page "À propos"
-📱 Tablette (768px - 1024px)
-Menu burger avec overlay
-Grille de 2 cartes par ligne
-Filtres sur deux lignes
-Layout adapté
-📱 Mobile (< 768px)
-Menu burger avec navigation verticale
-Grille d'1 carte par ligne
-Filtres empilés verticalement
-Interface optimisée pour le tactile
-👨‍💻 Équipe
-Anthony
-Rôle : Développeur Frontend
-Responsabilités :
+- **Onglets** : Cliquez sur "Notre histoire", "Notre équipe" ou "Nos valeurs"
+- **FAQ** : Cliquez sur une question pour afficher la réponse (accordéon)
+- **Formulaire de contact** : Remplissez tous les champs obligatoires pour nous contacter
 
-Architecture HTML (header, recherche, navigation)
-Styles CSS (header, filtres, page À propos + footer)
-JavaScript (dark mode, menu burger, onglets, FAQ, filtres, recherche)
-Intégration de l'API TheMealDB (generer.html et generer.js)
-Responsive design complet
-Git workflow et gestion des branches
-Diogo
-Rôle : Développeur Frontend
-Responsabilités :
+---
 
-Architecture HTML (main, cards, footer)
-Styles CSS (cards, footer, page recette)
-Système de favoris
-Responsive des cartes et du contenu principal
-🔄 Workflow Git
-Le projet utilise une organisation en branches pour séparer les fonctionnalités :
+## 🌐 API TheMealDB
 
-main : Branche principale stable
-📝 Fonctionnalités bonus réalisées
-✅ Loader animé pour les appels API
-✅ Notifications visuelles pour les actions utilisateur
+### Présentation
 
-📄 Licence
-Ce projet est développé dans le cadre d'un projet pédagogique de formation en développement web.
+L'API TheMealDB est une base de données collaborative gratuite qui fournit des informations sur des milliers de recettes du monde entier.
+
+### Endpoint utilisé
+
+```javascript
+https://www.themealdb.com/api/json/v1/1/random.php
+```
+
+### Structure de la réponse
+
+```json
+{
+  "meals": [
+    {
+      "idMeal": "52771",
+      "strMeal": "Spicy Arrabiata Penne",
+      "strCategory": "Vegetarian",
+      "strArea": "Italian",
+      "strInstructions": "...",
+      "strMealThumb": "https://...",
+      "strIngredient1": "penne rigate",
+      "strMeasure1": "1 pound",
+      ...
+    }
+  ]
+}
+```
+
+### Implémentation technique
+
+```javascript
+// Fonction async/await pour récupérer une recette aléatoire
+async function fetchRandomRecipe() {
+  try {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+    const data = await response.json();
+    return data.meals[0];
+  } catch (error) {
+    console.error('Erreur lors de la récupération de la recette:', error);
+  }
+}
+```
+
+### Extraction dynamique des ingrédients
+
+Les ingrédients sont stockés dans les propriétés `strIngredient1` à `strIngredient20`. Le code parcourt ces propriétés et extrait uniquement celles qui contiennent une valeur.
+
+---
+
+## 📱 Responsive Design
+
+Le site s'adapte automatiquement à toutes les tailles d'écran grâce à trois breakpoints principaux :
+
+### 🖥️ Desktop (> 1024px)
+- Navigation horizontale complète
+- Grille de 3 cartes par ligne
+- Filtres alignés sur une ligne
+- Layout à deux colonnes sur la page "À propos"
+
+### 📱 Tablette (768px - 1024px)
+- Menu burger avec overlay
+- Grille de 2 cartes par ligne
+- Filtres sur deux lignes
+- Mise en page adaptée
+
+### 📱 Mobile (< 768px)
+- Menu burger avec navigation verticale
+- Grille d'1 carte par ligne
+- Filtres empilés verticalement
+- Interface optimisée pour le tactile
+
+### Techniques CSS utilisées
+
+- **Flexbox** : Pour les alignements et distributions flexibles
+- **Grid** : Pour les mises en page en grille (cartes de recettes)
+- **Media Queries** : Pour les breakpoints responsive
+- **Variables CSS** : Pour une maintenance facile des couleurs et dimensions
+
+---
+
+## 👥 Équipe de développement
+
+### 👨‍💻 Anthony
+**Développeur Frontend Lead**
+
+**Responsabilités :**
+- Architecture globale HTML (header, navigation, recherche)
+- Développement CSS (header, filtres, page À propos, footer)
+- Logique JavaScript (dark mode, menu burger, onglets, FAQ, recherche, filtres)
+- Intégration complète de l'API TheMealDB (`generer.html` et `generer.js`)
+- Responsive design sur tous les breakpoints
+- Git workflow et gestion des branches
+
+### 👨‍💻 Diogo
+**Développeur Frontend**
+
+**Responsabilités :**
+- Architecture HTML (main, cards, footer)
+- Développement CSS (cards, footer, page recette)
+- Système de favoris avec localStorage
+- Responsive design des cartes et contenu principal
+
+---
+
+## 🔄 Workflow Git
+
+Le projet utilise une organisation rigoureuse en branches pour séparer les fonctionnalités :
+
+### Branches principales
+- `main` : Branche principale stable avec le code de production
+- Branches features : Format `JS-XX-FONCTIONNALITE---PRENOM`
+
+### Exemples de branches créées
+- `JS-01-DARK-MODE---ANTHONY`
+- `JS-02-MENU-BURGER---ANTHONY`
+- `JS-08-OPTIMISATIONS---ANTHONY`
+
+### Commandes Git essentielles
+
+```bash
+# Créer une nouvelle branche de feature
+git checkout -b JS-XX-MA-FONCTIONNALITE---PRENOM
+
+# Ajouter et commiter des modifications
+git add .
+git commit -m "Description claire de la modification"
+
+# Fusionner une branche dans main
+git checkout main
+git merge JS-XX-MA-FONCTIONNALITE---PRENOM
+
+# Pousser vers le dépôt distant
+git push origin nom-de-la-branche
+```
+
+---
+
+## ✅ Fonctionnalités bonus réalisées
+
+- ✅ **Loader animé** : Affichage d'un spinner pendant les appels API
+- ✅ **Notifications visuelles** : Messages de succès/erreur pour les actions utilisateur
+- ✅ **Animations fluides** : Transitions CSS sur les interactions (hover, focus)
+- ✅ **Thème persistant** : Sauvegarde de la préférence de thème dans localStorage
+- ✅ **Menu burger animé** : Transformation de l'icône hamburger en croix
+- ✅ **FAQ accordéon** : Ouverture/fermeture fluide des questions
+- ✅ **Validation formulaire** : Vérification en temps réel des champs
+- ✅ **Accessibilité** : Attributs ARIA et navigation au clavier
+
+---
+
+## 🎓 Compétences démontrées
+
+### HTML
+- Utilisation de balises sémantiques (`header`, `nav`, `main`, `section`, `article`, `footer`)
+- Attributs `data-*` pour stocker des informations personnalisées
+- Attributs d'accessibilité (`aria-label`, `aria-expanded`, `role`)
+- Structure de formulaire avec labels associés
+
+### CSS
+- Mise en page moderne avec **Flexbox** et **Grid**
+- Variables CSS (`--primary-color`, `--spacing-unit`, etc.)
+- Media Queries pour le responsive design
+- Animations et transitions fluides
+- Thème clair/sombre avec `data-theme`
+
+### JavaScript (ES6+)
+- Manipulation avancée du DOM
+- Gestion d'événements (`addEventListener`)
+- Fonctions asynchrones (`async/await`)
+- Fetch API pour les requêtes HTTP
+- localStorage pour la persistance
+- Gestion d'erreurs avec `try/catch`
+- Fonctions fléchées et destructuration
+
+### Bonnes pratiques
+- Code commenté et documenté
+- Nommage cohérent des variables et fonctions
+- Séparation des préoccupations (HTML/CSS/JS)
+- Validation W3C
+- Accessibilité (WCAG)
+- Workflow Git organisé
+
+---
+
+## 📈 Évolutions possibles
+
+Le projet GourmeTech peut être enrichi avec les fonctionnalités suivantes :
+
+- 🔍 **Recherche avancée par ingrédients** avec l'API TheMealDB
+- ⭐ **Système de notation** des recettes par les utilisateurs
+- 🖼️ **Galerie d'images** pour chaque recette
+- 🖨️ **Mode impression** optimisé pour les recettes
+- 💬 **Système de commentaires** sur les recettes
+- 📤 **Partage social** sur les réseaux sociaux
+- 🌍 **Internationalisation** (i18n) multi-langues
+- 📊 **Statistiques personnelles** (recettes consultées, favorites, etc.)
+- 🔐 **Authentification** avec backend pour synchroniser les favoris
+- 📝 **Ajout de recettes personnelles** par les utilisateurs
+
+---
+
+## 📄 Licence
+
+Ce projet est développé dans le cadre d'un **projet pédagogique** de formation en développement web.
+
 © 2025 GourmeTech - Tous droits réservés
 
-🙏 Remerciements
-Merci à tous les contributeurs de ce projet éducatif et à l'API TheMealDB pour son service gratuit.
+---
 
-Développé avec ❤️ par Anthony & Diogo
+## 🙏 Remerciements
 
-📞 Contact
-Pour toute question sur le projet ou suggestion d'amélioration, n'hésitez pas à ouvrir une issue sur GitHub.
+- Merci à l'équipe pédagogique pour l'accompagnement tout au long du projet
+- Merci à [TheMealDB](https://www.themealdb.com/) pour son API gratuite et bien documentée
+- Merci à la communauté MDN Web Docs pour la documentation de référence
 
-**Dernière mise à jour** : Octobre 2025  
-**Version** : 2.0.0 (avec intégration API TheMealDB)
+---
+
+## 📞 Contact
+
+Pour toute question sur le projet, suggestion d'amélioration ou signalement de bug :
+
+- 📧 Ouvrir une issue sur GitHub
+- 💬 Utiliser le formulaire de contact sur le site
+
+---
+
+**Développé avec ❤️ par Anthony & Diogo**
+
+*Dernière mise à jour : Octobre 2025*  
+*Version : 2.0.0 (avec intégration API TheMealDB)*
