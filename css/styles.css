@@ -75,6 +75,20 @@ body.dark-mode nav a.pActive {
     color: var(--color-orange);
 }
 
+body.dark-mode .like.active {
+    background-color: var(--color-orange); /* Ou une autre couleur rouge */
+}
+
+/* Ajoutez ceci n'importe où dans votre CSS pour le mode clair */
+.like.active {
+    background-color: var(--color-orange); /* Une couleur rouge pour indiquer qu'il est "aimé" */
+}
+
+/* Et pour l'icône à l'intérieur du bouton aimé, si vous voulez qu'elle change de couleur */
+.like.active img {
+    filter: invert(100%); /* Rend l'icône blanche pour un fond rouge */
+}
+
 body.dark-mode nav {
     background-color: var(--header-bg); 
 }

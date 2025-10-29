@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="js/main.js"></script>
 </head>
-<body class="parent">
+<body  class="parent page-favoris">
     <header><!-- comprend un LOGO + h1 et une nav + bouton darkmode-->
         <a href="index.html" class="logo">
             <img src="assets/images/logoGourmetech.png" alt="Logo du site - G">
@@ -56,13 +56,10 @@
     </header>
     
     <!-- composé de card qui sera géré par Javascript pour afficher dynamiquement-->
-    <main class="fav-parent">
-        <article class="card-content">
-            <button><a href="/assets/icons/iconefavori.png"></a></button>
-            <a href="#"><img src="#" alt="image de la recette favorite" class="card-image"></a>  
-            <h2 class="card-title">titre de la recette</h2>
-            <p class="card-text">Ceci est le corps du texte de la carte.</p>
-        </article>
+    <main id="favorites-container" class="cards"> <!-- AJOUTEZ L'ID ICI -->
+        <!-- Le contenu de cet élément sera remplacé par les cartes favorites via JS -->
+        <p class="no-favorites-message">Chargement des favoris...</p> 
+        <!-- Ce paragraphe sera remplacé si des favoris sont trouvés ou mis à jour -->
     </main>
     <!--Même footer que la page d'accueil pour garder de la cohérence-->
      <footer>
