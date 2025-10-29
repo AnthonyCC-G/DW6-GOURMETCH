@@ -3,49 +3,6 @@
 //Auteurs : Anthony & Diogo
 //==========================================
 
-// --- DÉBUT DES AJOUTS / MODIFICATIONS ---
-
-// 1. Déplacer et Compléter le 'allRecipesData'
-//    Mettez ceci au DÉBUT de votre fichier main.js, après les commentaires d'en-tête,
-//    afin qu'il soit accessible globalement par toutes les fonctions.
-//    Assurez-vous que TOUTES vos recettes de l'index.html sont présentes ici
-//    et que l'ID correspond EXACTEMENT au texte de votre H2 dans les cards.
-const allRecipesData = [
-    {
-        id: "Pasteis de Chaves",
-        image: "assets/images/pasteisdechaves.jpg",
-        description: "De délicieux chaussons portugais farcis à la viande.",
-        categorie: "entree",
-        temps: "25 min", // Temps affiché
-        tempsNum: 25,    // Temps numérique pour data-temps
-        difficulte: "Moyen",
-        link: "recette.html" // Lien générique, à adapter si vous avez des pages spécifiques
-    },
-    {
-        id: "Rougail Saucisse",
-        image: "assets/images/rougail_saucisses.png",
-        description: "Un plat réunionnais épicé et savoureux avec des saucisses fumées.",
-        categorie: "plat",
-        temps: "60 min",
-        tempsNum: 60,
-        difficulte: "Difficile",
-        link: "recette.html"
-    },
-    {
-        id: "Pizza Margerita",
-        image: "assets/images/pizzamargerita.jpg",
-        description: "La classique pizza italienne, simple et efficace.",
-        categorie: "plat",
-        temps: "15 min",
-        tempsNum: 15,
-        difficulte: "Facile",
-        link: "recette.html"
-    },
-    // AJOUTEZ ICI TOUTES VOS AUTRES RECETTES DE L'INDEX.HTML
-];
-
-// --- FIN DES AJOUTS / MODIFICATIONS ---
-
 
 //---  PARTIE ANTHONY ----------------------
 //==========================================
@@ -378,6 +335,52 @@ ajouterEcouteursCheckboxes(difficulteCheckboxes);
 
 //---  PARTIE DIOGO   ----------------------
 //==========================================
+
+
+// --- DÉBUT DES AJOUTS / MODIFICATIONS ---
+
+// 1. Déplacer et Compléter le 'allRecipesData'
+//    Mettez ceci au DÉBUT de votre fichier main.js, après les commentaires d'en-tête,
+//    afin qu'il soit accessible globalement par toutes les fonctions.
+//    Assurez-vous que TOUTES vos recettes de l'index.html sont présentes ici
+//    et que l'ID correspond EXACTEMENT au texte de votre H2 dans les cards.
+const allRecipesData = [
+    {
+        id: "Pasteis de Chaves",
+        image: "assets/images/pasteisdechaves.jpg",
+        description: "De délicieux chaussons portugais farcis à la viande.",
+        categorie: "entree",
+        temps: "25 min", // Temps affiché
+        tempsNum: 25,    // Temps numérique pour data-temps
+        difficulte: "Moyen",
+        link: "recette.html" // Lien générique, à adapter si vous avez des pages spécifiques
+    },
+    {
+        id: "Rougail Saucisse",
+        image: "assets/images/rougail_saucisses.png",
+        description: "Un plat réunionnais épicé et savoureux avec des saucisses fumées.",
+        categorie: "plat",
+        temps: "60 min",
+        tempsNum: 60,
+        difficulte: "Difficile",
+        link: "recette.html"
+    },
+    {
+        id: "Pizza Margerita",
+        image: "assets/images/pizzamargerita.jpg",
+        description: "La classique pizza italienne, simple et efficace.",
+        categorie: "plat",
+        temps: "15 min",
+        tempsNum: 15,
+        difficulte: "Facile",
+        link: "recette.html"
+    },
+    // AJOUTEZ ICI TOUTES VOS AUTRES RECETTES DE L'INDEX.HTML
+];
+
+// --- FIN DES AJOUTS / MODIFICATIONS ---
+
+
 
 // --- GESTION DES FAVORIS (LIKE BUTTON & LOCAL STORAGE) ---
 // =========================================================
