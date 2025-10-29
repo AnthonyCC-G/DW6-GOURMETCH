@@ -205,5 +205,5 @@ Développé avec ❤️ par Anthony & Diogo
 📞 Contact
 Pour toute question sur le projet ou suggestion d'amélioration, n'hésitez pas à ouvrir une issue sur GitHub.
 
-Dernière mise à jour : Octobre 2025
-Version : 2.0.0 (avec intégration API TheMealDB)
+**Dernière mise à jour** : Octobre 2025  
+**Version** : 2.0.0 (avec intégration API TheMealDB)
